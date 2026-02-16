@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://b3bvd4lhwcsqd"]
+
+[ext_resource type="Script" uid="uid://bdd8r2374bhus" path="res://components/chat/chatbox/chat.gd" id="1_051ar"]
+[ext_resource type="PackedScene" uid="uid://d1f6rqws6ggdu" path="res://components/chat/message_box/chat_message_box.tscn" id="1_j6pbg"]
+[ext_resource type="Script" uid="uid://brjvldsr7yqie" path="res://scripts/resources/chat_message.gd" id="2_wxplx"]
+[ext_resource type="Texture2D" uid="uid://tepeb3ejwbwj" path="res://icon.svg" id="3_bchsc"]
+
+[sub_resource type="Resource" id="Resource_uhbap"]
+script = ExtResource("2_wxplx")
+icon = ExtResource("3_bchsc")
+username = "cooldad420"
+usernameColor = Color(0.7042215, 0.019841613, 0.3929949, 1)
+message = "Hey chat!"
+metadata/_custom_type_script = "uid://brjvldsr7yqie"
+
+[sub_resource type="Resource" id="Resource_iu024"]
+script = ExtResource("2_wxplx")
+icon = ExtResource("3_bchsc")
+username = "sqquueez"
+usernameColor = Color(0.38495335, 0.57485384, 0.23950472, 1)
+message = "catJAM"
+metadata/_custom_type_script = "uid://brjvldsr7yqie"
+
+[sub_resource type="Resource" id="Resource_7m6ij"]
+script = ExtResource("2_wxplx")
+icon = ExtResource("3_bchsc")
+username = "temp0232048"
+usernameColor = Color(0.2986261, 0.23628876, 0.8005768, 1)
+message = "Enlarge your presence today! Visit engorgeme.biz!!"
+metadata/_custom_type_script = "uid://brjvldsr7yqie"
+
+[node name="Chatbox" type="Control" unique_id=562640428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_051ar")
+messages = Array[ExtResource("2_wxplx")]([SubResource("Resource_uhbap"), SubResource("Resource_iu024"), SubResource("Resource_7m6ij")])
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=685580144]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=856517635]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=210074143]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=287584543]
+layout_mode = 2
+text = "Chat"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=144484996]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=739564961]
+unique_name_in_owner = true
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="ChatMessages" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/ScrollContainer" unique_id=1424311268]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/ScrollContainer/ChatMessages" unique_id=552283829 instance=ExtResource("1_j6pbg")]
+layout_mode = 2

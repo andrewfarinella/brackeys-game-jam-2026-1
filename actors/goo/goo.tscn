@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dg5g4p3gcq824"]
 
 [ext_resource type="Texture2D" uid="uid://bwid5088rkysb" path="res://assets/goo/0001.png" id="1_0abj3"]
+[ext_resource type="Script" uid="uid://b0bim7arex81p" path="res://actors/goo/goo.gd" id="1_sfjoh"]
 [ext_resource type="Texture2D" uid="uid://bhhf8f1i6bjp1" path="res://assets/goo/0002.png" id="2_nvo6f"]
 [ext_resource type="Texture2D" uid="uid://bddhxft7i1nk7" path="res://assets/goo/0003.png" id="3_sfjoh"]
 [ext_resource type="Texture2D" uid="uid://borsluy5s3ux7" path="res://assets/goo/0004.png" id="4_m3pr7"]
@@ -13,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://pykiq2wdmtvx" path="res://assets/goo/0011.png" id="11_mquo7"]
 [ext_resource type="Texture2D" uid="uid://crjvvlu3ca8k0" path="res://assets/goo/0012.png" id="12_e6apw"]
 [ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="13_10ifj"]
+[ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="14_nvo6f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bit6u"]
 animations = [{
@@ -58,21 +60,27 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jox0t"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_sfjoh"]
+radius = 48.270073
 
-[node name="Node2D" type="Node2D" unique_id=1108700535]
+[node name="Goo" type="Node2D" unique_id=1108700535]
+script = ExtResource("1_sfjoh")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=648196391]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=395704127]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=395704127]
 sprite_frames = SubResource("SpriteFrames_bit6u")
 autoplay = "default"
 frame_progress = 0.77718663
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=86787542]
-scale = Vector2(4.5, 4.5)
-shape = SubResource("CircleShape2D_jox0t")
-
 [node name="MoveComponent" type="Node" parent="." unique_id=885344095 node_paths=PackedStringArray("actor")]
 script = ExtResource("13_10ifj")
 actor = NodePath("..")
+velocity = Vector2(0, 230)
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=689255192]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("14_nvo6f")
+metadata/_custom_type_script = "uid://bplsnnnm84yir"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=51897163]
+shape = SubResource("CircleShape2D_sfjoh")

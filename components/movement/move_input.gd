@@ -4,7 +4,12 @@ extends Node
 @export var moveComponent: MoveComponent
 @export var moveStats: MovementStats
 
+var isSprinting := false
+
 func _input(_event: InputEvent) -> void:
-	var xAxis = Input.get_axis("ui_left", "ui_right")
-	var yAxis = Input.get_axis("ui_up", "ui_down")
-	moveComponent.velocity = Vector2(xAxis * moveStats.speed, yAxis * moveStats.speed)
+	var xAxis = Input.get_axis("Left", "Right")
+	var yAxis = Input.get_axis("Up", "Down")
+	
+	isSprinting = Input.is_action_pressed("Sprint")
+	var speed = moveStats.sprintSpeed if isSprinting else moveStats.speed
+	moveComponent.velocity = Vector2(xAxis * speed, yAxis * speed)

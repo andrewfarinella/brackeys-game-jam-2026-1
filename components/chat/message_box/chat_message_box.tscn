@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d1f6rqws6ggdu"]
+
+[ext_resource type="Script" uid="uid://bai26bs6rixmg" path="res://components/chat/message_box/chat_message_box.gd" id="1_yw6pr"]
+
+[node name="ChatMessageBox" type="MarginContainer" unique_id=552283829]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+script = ExtResource("1_yw6pr")
+
+[node name="Message" type="RichTextLabel" parent="." unique_id=1676045609]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[img=25]res://icon.svg[/img] [color=red]username420[/color]: Hello chat!"
+fit_content = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=614882884]
+rect = Rect2(-10, -10, 444, 125)

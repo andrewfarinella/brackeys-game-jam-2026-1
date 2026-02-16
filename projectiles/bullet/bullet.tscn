@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cstlssje27do0"]
+
+[ext_resource type="Script" uid="uid://dsfm5j2tcj576" path="res://projectiles/bullet/bullet.gd" id="1_g1w5t"]
+[ext_resource type="Texture2D" uid="uid://tepeb3ejwbwj" path="res://icon.svg" id="1_hwob3"]
+[ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="2_1mdu2"]
+[ext_resource type="Script" uid="uid://dung32ibr41lw" path="res://components/hitbox_component.gd" id="4_sils6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pofd3"]
+size = Vector2(128, 128)
+
+[node name="Bullet" type="Node2D" unique_id=463933996]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_g1w5t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=244518843]
+texture = ExtResource("1_hwob3")
+
+[node name="MoveComponent" type="Node" parent="." unique_id=1344582234 node_paths=PackedStringArray("actor")]
+script = ExtResource("2_1mdu2")
+actor = NodePath("..")
+velocity = Vector2(0, -1500)
+metadata/_custom_type_script = "uid://0jiyn3ggg7i7"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=979243424]
+scale = Vector2(0.07999992, 1)
+rect = Rect2(-800.0008, -64, 1600.0016, 128)
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=214214456]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_sils6")
+metadata/_custom_type_script = "uid://dung32ibr41lw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1168234822]
+shape = SubResource("RectangleShape2D_pofd3")
