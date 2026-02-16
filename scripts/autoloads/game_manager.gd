@@ -5,6 +5,12 @@ enum InputScheme {
 	Gamepad
 }
 
+enum CollisionLayer {
+	None,
+	Player,
+	Enemy
+}
+
 var inputScheme:InputScheme = InputScheme.KBM
 var hostCharacter:HostCharacter
 
