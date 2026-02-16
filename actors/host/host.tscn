@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://dodd17x73i3fw"]
 
+[ext_resource type="Script" uid="uid://cdrlbcjp2ywyj" path="res://actors/host/host.gd" id="1_pb36o"]
 [ext_resource type="Texture2D" uid="uid://tepeb3ejwbwj" path="res://icon.svg" id="1_tqke7"]
 [ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="2_xq45j"]
 [ext_resource type="Script" uid="uid://cw5rh70lpenu4" path="res://components/movement/move_input.gd" id="3_v200k"]
 [ext_resource type="Resource" uid="uid://cjc27x77dw0fo" path="res://actors/host/movement_stats.tres" id="4_qll5u"]
+[ext_resource type="Script" uid="uid://dk4monx40yk81" path="res://components/position_clamp.gd" id="5_fa3xh"]
+[ext_resource type="Script" uid="uid://c2x836gq3chhc" path="res://components/spawner_component.gd" id="6_5jnfj"]
+[ext_resource type="PackedScene" uid="uid://cstlssje27do0" path="res://projectiles/bullet/bullet.tscn" id="7_qcsgy"]
+[ext_resource type="Script" uid="uid://c602xy1d2jwmu" path="res://components/weapons/weapon_input.gd" id="9_qm0t1"]
 
 [node name="Host" type="Node2D" unique_id=85555668]
+script = ExtResource("1_pb36o")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=58267932]
 texture = ExtResource("1_tqke7")
@@ -13,6 +19,7 @@ texture = ExtResource("1_tqke7")
 [node name="MoveComponent" type="Node" parent="." unique_id=204262942 node_paths=PackedStringArray("actor")]
 script = ExtResource("2_xq45j")
 actor = NodePath("..")
+ignoreRotation = true
 metadata/_custom_type_script = "uid://0jiyn3ggg7i7"
 
 [node name="MoveInputComponent" type="Node" parent="." unique_id=122766490 node_paths=PackedStringArray("moveComponent")]
@@ -20,3 +27,17 @@ script = ExtResource("3_v200k")
 moveComponent = NodePath("../MoveComponent")
 moveStats = ExtResource("4_qll5u")
 metadata/_custom_type_script = "uid://cw5rh70lpenu4"
+
+[node name="PositionClampComponent" type="Node" parent="." unique_id=1706291008 node_paths=PackedStringArray("actor")]
+script = ExtResource("5_fa3xh")
+actor = NodePath("..")
+metadata/_custom_type_script = "uid://dk4monx40yk81"
+
+[node name="WeaponInputComponent" type="Node" parent="." unique_id=1638989550]
+script = ExtResource("9_qm0t1")
+metadata/_custom_type_script = "uid://c602xy1d2jwmu"
+
+[node name="SpawnerComponent" type="Node2D" parent="." unique_id=285297192]
+script = ExtResource("6_5jnfj")
+scene = ExtResource("7_qcsgy")
+metadata/_custom_type_script = "uid://c2x836gq3chhc"

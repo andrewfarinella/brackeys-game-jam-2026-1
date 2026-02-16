@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cs147f4fyys0f"]
+
+[ext_resource type="PackedScene" uid="uid://dodd17x73i3fw" path="res://actors/host/host.tscn" id="1_3uriw"]
+[ext_resource type="PackedScene" uid="uid://dg5g4p3gcq824" path="res://actors/goo/goo.tscn" id="2_dv2sx"]
+
+[node name="Node2D" type="Node2D" unique_id=1421490685]
+metadata/_edit_horizontal_guides_ = [2171.0]
+metadata/_edit_vertical_guides_ = [3073.0]
+
+[node name="Host" parent="." unique_id=85555668 instance=ExtResource("1_3uriw")]
+position = Vector2(1984, 1671)
+
+[node name="Goo" parent="." unique_id=1108700535 instance=ExtResource("2_dv2sx")]
+position = Vector2(1576, 294)
+
+[node name="Goo2" parent="." unique_id=191565511 instance=ExtResource("2_dv2sx")]
+position = Vector2(2252, 350)
+
+[node name="Goo3" parent="." unique_id=984507669 instance=ExtResource("2_dv2sx")]
+position = Vector2(1112, 525)
+
+[node name="Goo4" parent="." unique_id=268140185 instance=ExtResource("2_dv2sx")]
+position = Vector2(424, 340)
+
+[node name="Projectiles" type="Node" parent="." unique_id=1617358623]
+unique_name_in_owner = true

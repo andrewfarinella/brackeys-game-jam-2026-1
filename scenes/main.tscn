@@ -1,8 +1,60 @@
 [gd_scene format=3 uid="uid://dayu8cafucbx4"]
 
-[ext_resource type="PackedScene" uid="uid://dodd17x73i3fw" path="res://actors/host/host.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://cs147f4fyys0f" path="res://scenes/game_screen/game_screen.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://cm6p0jaums2kp" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b3bvd4lhwcsqd" path="res://components/chat/chatbox/chat.tscn" id="3_sugp2"]
 
 [node name="Node2D" type="Node2D" unique_id=1421490685]
+script = ExtResource("1_sugp2")
 
-[node name="Host" parent="." unique_id=85555668 instance=ExtResource("1_o5qli")]
-position = Vector2(1984, 1671)
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1643675042]
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 3081.0
+offset_bottom = 2175.0
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=9930853]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PanelContainer/MarginContainer" unique_id=1550573644]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="PanelContainer/MarginContainer/SubViewportContainer" unique_id=625590784]
+handle_input_locally = false
+size = Vector2i(3010, 2094)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Node2D" parent="PanelContainer/MarginContainer/SubViewportContainer/SubViewport" unique_id=200790820 instance=ExtResource("1_0wfyh")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=963175881]
+
+[node name="Chatbox" parent="CanvasLayer" unique_id=562640428 instance=ExtResource("3_sugp2")]
+metadata/_edit_lock_ = true
+
+[node name="SubCount" type="Label" parent="CanvasLayer" unique_id=1744370350]
+unique_name_in_owner = true
+offset_left = 2331.0
+offset_top = 78.0
+offset_right = 2991.0
+offset_bottom = 166.0
+theme_override_font_sizes/font_size = 64
+text = "Sub Goal: 3/1,000,000"
+
+[node name="SubMessage" type="RichTextLabel" parent="CanvasLayer" unique_id=1364389364]
+unique_name_in_owner = true
+visible = false
+offset_left = 223.0
+offset_top = 764.0
+offset_right = 883.0
+offset_bottom = 852.0
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[color=purple]saintspaints[/color] subscribed for 8 months!"
+fit_content = true
+autowrap_mode = 0
