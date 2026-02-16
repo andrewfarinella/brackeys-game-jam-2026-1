@@ -27,7 +27,7 @@ rect = Rect2(-800.0008, -64, 1600.0016, 128)
 
 [node name="HitboxComponent" type="Area2D" parent="." unique_id=214214456]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("4_sils6")
 metadata/_custom_type_script = "uid://dung32ibr41lw"
 

@@ -1,3 +1,4 @@
+class_name HostCharacter
 extends Node2D
 
 @onready var moveComponent: MoveComponent = $MoveComponent as MoveComponent
@@ -5,6 +6,7 @@ extends Node2D
 @onready var positionClampComponent: PositionClampComponent = $PositionClampComponent as PositionClampComponent
 @onready var spawnerComponent: SpawnerComponent = $SpawnerComponent as SpawnerComponent
 @onready var weaponInputComponent: WeaponInputComponent = $WeaponInputComponent as WeaponInputComponent
+@onready var hurtboxComponent: HurtboxComponent = $HurtboxComponent as HurtboxComponent
 
 var rotationDeadzone:float = 0.2
 var rotationSpeed:float = 5.
@@ -13,6 +15,7 @@ var targetAngle:float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	weaponInputComponent.weaponFired.connect(fire_weapon)
+	hurtboxComponent.hurt.connect(queue_free.unbind(1))
 	
 func _process(delta: float) -> void:
 	if GameManager.inputScheme == GameManager.InputScheme.KBM:
@@ -34,3 +37,4 @@ func _process(delta: float) -> void:
 func fire_weapon() -> void:
 	var bullet = spawnerComponent.spawn(global_position, %Projectiles) as Bullet
 	bullet.rotation_degrees = rotation_degrees
+	bullet.target_enemies()

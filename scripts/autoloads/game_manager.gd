@@ -6,6 +6,7 @@ enum InputScheme {
 }
 
 var inputScheme:InputScheme = InputScheme.KBM
+var hostCharacter:HostCharacter
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouse: return

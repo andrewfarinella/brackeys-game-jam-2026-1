@@ -7,3 +7,9 @@ extends Node2D
 func _ready() -> void:
 	visibleOnScreenNotifier.screen_exited.connect(queue_free)
 	hitboxComponent.hit_hurtbox.connect(queue_free.unbind(1))
+
+func target_player() -> void:
+	hitboxComponent.collision_mask = 1
+
+func target_enemies() -> void:
+	hitboxComponent.collision_mask = 2

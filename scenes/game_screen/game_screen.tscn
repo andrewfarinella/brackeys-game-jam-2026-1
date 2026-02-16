@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cs147f4fyys0f"]
 
 [ext_resource type="PackedScene" uid="uid://dodd17x73i3fw" path="res://actors/host/host.tscn" id="1_3uriw"]
+[ext_resource type="Script" uid="uid://bv2dfpxs3xfe1" path="res://scenes/game_screen/game_screen.gd" id="1_4hxb2"]
 [ext_resource type="PackedScene" uid="uid://dg5g4p3gcq824" path="res://actors/goo/goo.tscn" id="2_dv2sx"]
+[ext_resource type="PackedScene" uid="uid://bgo8l1gfu5l4w" path="res://actors/gunner/gunner.tscn" id="4_3o8ta"]
 
-[node name="Node2D" type="Node2D" unique_id=1421490685]
+[node name="GameScreen" type="Node2D" unique_id=1421490685]
+script = ExtResource("1_4hxb2")
 metadata/_edit_horizontal_guides_ = [2171.0]
 metadata/_edit_vertical_guides_ = [3073.0]
 
@@ -24,3 +27,9 @@ position = Vector2(424, 340)
 
 [node name="Projectiles" type="Node" parent="." unique_id=1617358623]
 unique_name_in_owner = true
+
+[node name="Gunner" parent="." unique_id=1319699862 instance=ExtResource("4_3o8ta")]
+position = Vector2(1077, 215)
+
+[node name="Gunner2" parent="." unique_id=606174623 instance=ExtResource("4_3o8ta")]
+position = Vector2(1936, 544)
