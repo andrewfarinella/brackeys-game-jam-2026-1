@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dayu8cafucbx4"]
 
 [ext_resource type="PackedScene" uid="uid://dodd17x73i3fw" path="res://actors/host/host.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dg5g4p3gcq824" path="res://actors/goo/goo.tscn" id="2_0wfyh"]
 
 [node name="Node2D" type="Node2D" unique_id=1421490685]
 
 [node name="Host" parent="." unique_id=85555668 instance=ExtResource("1_o5qli")]
-position = Vector2(1984, 1671)
+position = Vector2(1994, 1671)
+
+[node name="Node2D" parent="." unique_id=1108700535 instance=ExtResource("2_0wfyh")]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cl0i7wg574k0u"]
+
+[ext_resource type="Texture2D" uid="uid://by1qvl44x4v3" path="res://assets/chatScreen/chatScreen.png" id="1_7exbb"]
+
+[node name="Node2D" type="Node2D" unique_id=269557298]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=119024847]
+position = Vector2(0, -3)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_7exbb")

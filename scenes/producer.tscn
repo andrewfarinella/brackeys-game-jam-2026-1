@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://xkg63duu855j"]
+
+[ext_resource type="PackedScene" uid="uid://v3v11orn84p3" path="res://actors/stream_screen/stream_screen.tscn" id="1_uskee"]
+[ext_resource type="PackedScene" uid="uid://cl0i7wg574k0u" path="res://actors/chat_screen/chat_screen.tscn" id="2_snlqk"]
+
+[node name="Producer View" type="Node2D" unique_id=1392756978]
+
+[node name="Stream Screen" parent="." unique_id=269557298 instance=ExtResource("1_uskee")]
+position = Vector2(1072, 645)
+
+[node name="Node2D" parent="." unique_id=1382337032 instance=ExtResource("2_snlqk")]
+position = Vector2(3245, 1003)

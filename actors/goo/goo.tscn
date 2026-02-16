@@ -67,11 +67,12 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=395704127]
 sprite_frames = SubResource("SpriteFrames_bit6u")
 autoplay = "default"
-frame_progress = 0.92147136
+frame_progress = 0.77718663
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=86787542]
 scale = Vector2(4.5, 4.5)
 shape = SubResource("CircleShape2D_jox0t")
 
-[node name="MoveComponent" type="Node" parent="." unique_id=885344095]
+[node name="MoveComponent" type="Node" parent="." unique_id=885344095 node_paths=PackedStringArray("actor")]
 script = ExtResource("13_10ifj")
+actor = NodePath("..")
