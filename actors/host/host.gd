@@ -15,17 +15,21 @@ func _ready() -> void:
 	weaponInputComponent.weaponFired.connect(fire_weapon)
 	
 func _process(delta: float) -> void:
-	var inputDirection := Vector2(
-		Input.get_joy_axis(0, JOY_AXIS_RIGHT_X),
-		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
-	)
-	if inputDirection.length() >= rotationDeadzone:
-		targetAngle = inputDirection.angle() + deg_to_rad(90)
+	if GameManager.inputScheme == GameManager.InputScheme.KBM:
+		look_at(get_viewport().get_mouse_position())
+		rotate(deg_to_rad(90))
+	else:
+		var inputDirection := Vector2(
+			Input.get_joy_axis(0, JOY_AXIS_RIGHT_X),
+			Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+		)
 		
-	if rotation != targetAngle:
-		var rotationLerpWeight := 1. - exp(-rotationSpeed * delta)
-		rotation = lerp_angle(rotation, targetAngle, rotationLerpWeight)
-	#look_at(get_viewport().get_mouse_position())
+		if inputDirection.length() >= rotationDeadzone:
+			targetAngle = inputDirection.angle() + deg_to_rad(90)
+			
+		if rotation != targetAngle:
+			var rotationLerpWeight := 1. - exp(-rotationSpeed * delta)
+			rotation = lerp_angle(rotation, targetAngle, rotationLerpWeight)
 	
 func fire_weapon() -> void:
 	var bullet = spawnerComponent.spawn(global_position, %Projectiles) as Bullet
