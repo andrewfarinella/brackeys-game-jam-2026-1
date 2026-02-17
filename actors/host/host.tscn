@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cstlssje27do0" path="res://projectiles/bullet/bullet.tscn" id="7_qcsgy"]
 [ext_resource type="Script" uid="uid://c602xy1d2jwmu" path="res://components/weapons/weapon_input.gd" id="9_qm0t1"]
 [ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="10_qm0t1"]
+[ext_resource type="PackedScene" uid="uid://mofrhca0hve0" path="res://weapons/base/spread_shot.tscn" id="11_ep15l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ep15l"]
 radius = 20.0
@@ -52,3 +53,17 @@ metadata/_custom_type_script = "uid://bplsnnnm84yir"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1511836439]
 shape = SubResource("CircleShape2D_ep15l")
+
+[node name="Weapon" parent="." unique_id=1244389419 instance=ExtResource("11_ep15l")]
+
+[node name="SpreadShot" parent="." unique_id=1149168397 instance=ExtResource("11_ep15l")]
+
+[node name="SubThanks" type="Label" parent="." unique_id=841748409]
+unique_name_in_owner = true
+visible = false
+offset_left = 66.0
+offset_top = -119.0
+offset_right = 536.0
+offset_bottom = -74.0
+theme_override_font_sizes/font_size = 32
+text = "Thanks for the sub, username!"

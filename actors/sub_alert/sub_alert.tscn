@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://xvx2qtalrh0w"]
+
+[ext_resource type="Script" uid="uid://p5oqw0jhgn6b" path="res://actors/sub_alert/sub_alert.gd" id="1_e251x"]
+[ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="1_qxrrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e251x"]
+size = Vector2(1147, 60)
+
+[node name="SubAlert" type="Node2D" unique_id=1785332626]
+script = ExtResource("1_e251x")
+
+[node name="Message" type="RichTextLabel" parent="." unique_id=1507468079]
+unique_name_in_owner = true
+offset_right = 291.0
+offset_bottom = 23.0
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[color=purple]saintspaints[/color] subscribed for 8 months!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=1324351276]
+position = Vector2(-3, 0)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_qxrrj")
+metadata/_custom_type_script = "uid://bplsnnnm84yir"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=2095477159]
+position = Vector2(579.5, 38)
+shape = SubResource("RectangleShape2D_e251x")
