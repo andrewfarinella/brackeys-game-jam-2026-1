@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cuhapbvqt6vud"]
+
+[ext_resource type="Texture2D" uid="uid://bc3xb4xe6af51" path="res://assets/wiresLong/0360.png" id="1_y4bt3"]
+[ext_resource type="Texture2D" uid="uid://doyc6ngy1adhf" path="res://assets/wiresLong/0363.png" id="2_iokb0"]
+[ext_resource type="Texture2D" uid="uid://c0rd1g76xhd6t" path="res://assets/wiresLong/0366.png" id="3_rgi0b"]
+[ext_resource type="Texture2D" uid="uid://3j67er14vhd7" path="res://assets/wiresLong/0369.png" id="4_fimva"]
+[ext_resource type="Texture2D" uid="uid://bk3wkxljh1p7i" path="res://assets/wiresLong/0372.png" id="5_yqwmj"]
+[ext_resource type="Texture2D" uid="uid://d1wfobjmfwsk2" path="res://assets/wiresLong/0375.png" id="6_5rotu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uyhr6"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_y4bt3")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_iokb0")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_rgi0b")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_fimva")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_yqwmj")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_5rotu")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_yqwmj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="WiresLong" type="Node2D" unique_id=1279542236]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=775554980]
+sprite_frames = SubResource("SpriteFrames_uyhr6")
+autoplay = "default"
+frame_progress = 0.7022446

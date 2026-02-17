@@ -3,8 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://of70tt8a0a8" path="res://assets/streamScreen/streamScreen.png" id="1_0e01n"]
 
 [node name="Node2D" type="Node2D" unique_id=269557298]
+z_index = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=119024847]
+z_index = 5
 position = Vector2(0, -3)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_0e01n")

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://3fp4t3oa5qo5"]
+
+[ext_resource type="Texture2D" uid="uid://dxh8cul8qjeyl" path="res://assets/wires/0300.png" id="1_5pnwt"]
+[ext_resource type="Texture2D" uid="uid://ds6t4v58oypuf" path="res://assets/wires/0303.png" id="2_c4kjr"]
+[ext_resource type="Texture2D" uid="uid://dbpvw3oio7nkl" path="res://assets/wires/0306.png" id="3_d0adl"]
+[ext_resource type="Texture2D" uid="uid://b84or571f2f3s" path="res://assets/wires/0309.png" id="4_0eegh"]
+[ext_resource type="Texture2D" uid="uid://c85wukp4hcpgh" path="res://assets/wires/0313.png" id="5_mgw2o"]
+[ext_resource type="Texture2D" uid="uid://16yha6ini35m" path="res://assets/wires/0317.png" id="6_8mgii"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3unm8"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("1_5pnwt")
+}, {
+"duration": 3.0,
+"texture": ExtResource("2_c4kjr")
+}, {
+"duration": 3.0,
+"texture": ExtResource("3_d0adl")
+}, {
+"duration": 3.0,
+"texture": ExtResource("4_0eegh")
+}, {
+"duration": 3.0,
+"texture": ExtResource("5_mgw2o")
+}, {
+"duration": 3.0,
+"texture": ExtResource("6_8mgii")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Wires" type="Node2D" unique_id=1596046582]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=963613649]
+sprite_frames = SubResource("SpriteFrames_3unm8")
+autoplay = "default"
+frame_progress = 0.8741485

@@ -1,16 +1,71 @@
 [gd_scene format=3 uid="uid://xkg63duu855j"]
 
-[ext_resource type="PackedScene" uid="uid://v3v11orn84p3" path="res://actors/stream_screen/stream_screen.tscn" id="1_uskee"]
-[ext_resource type="PackedScene" uid="uid://cl0i7wg574k0u" path="res://actors/chat_screen/chat_screen.tscn" id="2_snlqk"]
-[ext_resource type="PackedScene" uid="uid://dp1pex6gpb1c5" path="res://actors/liveButton/live_button.tscn" id="3_gfejj"]
+[ext_resource type="PackedScene" uid="uid://cuhapbvqt6vud" path="res://elements/wires/wiresLong/wires_long.tscn" id="1_4y5fv"]
+[ext_resource type="PackedScene" uid="uid://3fp4t3oa5qo5" path="res://elements/wires/wires.tscn" id="1_21rb3"]
+[ext_resource type="PackedScene" uid="uid://bi8fr1sa4l382" path="res://elements/producerBackground/producer_background.tscn" id="1_a02yc"]
+[ext_resource type="PackedScene" uid="uid://v3v11orn84p3" path="res://elements/stream_screen/stream_screen.tscn" id="1_uskee"]
+[ext_resource type="PackedScene" uid="uid://cl0i7wg574k0u" path="res://elements/chat_screen/chat_screen.tscn" id="2_snlqk"]
+[ext_resource type="PackedScene" uid="uid://dp1pex6gpb1c5" path="res://elements/liveButton/live_button.tscn" id="3_gfejj"]
+
+[sub_resource type="Gradient" id="Gradient_a02yc"]
+offsets = PackedFloat32Array(0, 0.85240966)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jsjcn"]
+gradient = SubResource("Gradient_a02yc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Producer View" type="Node2D" unique_id=1392756978]
 
-[node name="Stream Screen" parent="." unique_id=269557298 instance=ExtResource("1_uskee")]
-position = Vector2(1072, 645)
+[node name="ProducerBackground" parent="." unique_id=1044813063 instance=ExtResource("1_a02yc")]
+z_index = -10
+position = Vector2(1909, 1083)
+scale = Vector2(3.076, 3.076)
 
-[node name="Node2D" parent="." unique_id=1382337032 instance=ExtResource("2_snlqk")]
+[node name="WiresLong" parent="." unique_id=1279542236 instance=ExtResource("1_4y5fv")]
+position = Vector2(2066, 1154)
+scale = Vector2(5.043, 7.063)
+
+[node name="Wires" parent="." unique_id=1596046582 instance=ExtResource("1_21rb3")]
+position = Vector2(2359, 557)
+scale = Vector2(2.02, 2.71)
+
+[node name="Stream Screen" parent="." unique_id=269557298 instance=ExtResource("1_uskee")]
+light_mask = 4
+visibility_layer = 4
+z_index = 19
+position = Vector2(1138, 633)
+
+[node name="ChatScreen" parent="." unique_id=1382337032 instance=ExtResource("2_snlqk")]
+z_index = 5
 position = Vector2(3245, 1003)
 
 [node name="LiveButton" parent="." unique_id=753787253 instance=ExtResource("3_gfejj")]
-position = Vector2(1492, 1246)
+position = Vector2(322, 1251)
+
+[node name="BackgroundLights" type="Node" parent="." unique_id=1228119163]
+
+[node name="PointLight2D" type="PointLight2D" parent="BackgroundLights" unique_id=1241354807]
+position = Vector2(806, 616)
+color = Color(0.48389655, 0.07724314, 0.17731032, 1)
+energy = 3.25
+range_z_max = -5
+texture = SubResource("GradientTexture2D_jsjcn")
+texture_scale = 26.17
+
+[node name="PointLight2D2" type="PointLight2D" parent="BackgroundLights" unique_id=167194234]
+position = Vector2(3179.98, 921)
+color = Color(0.52688164, 0.14149216, 4.813075e-08, 1)
+energy = 5.07
+range_z_max = -5
+texture = SubResource("GradientTexture2D_jsjcn")
+texture_scale = 43.49
+
+[node name="PointLight2D3" type="PointLight2D" parent="BackgroundLights" unique_id=1829981476]
+position = Vector2(883, 2320)
+color = Color(0.64912564, 0, 0.17886487, 1)
+energy = 3.25
+range_z_max = -5
+texture = SubResource("GradientTexture2D_jsjcn")
+texture_scale = 44.15

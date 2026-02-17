@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bi8fr1sa4l382"]
+
+[ext_resource type="Texture2D" uid="uid://dll01qtsbt8ys" path="res://assets/producerBg/producerBg.png" id="1_kuaek"]
+
+[node name="ProducerBackground" type="Node2D" unique_id=1044813063]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1734115378]
+texture = ExtResource("1_kuaek")
