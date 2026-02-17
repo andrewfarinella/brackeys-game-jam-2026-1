@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ma0tsvblieoh"]
+
+[ext_resource type="Script" uid="uid://bwexnshot1j27" path="res://weapons/spread_shot/base.gd" id="1_qdhjr"]
+[ext_resource type="PackedScene" uid="uid://cstlssje27do0" path="res://projectiles/bullet/bullet.tscn" id="2_ydd1j"]
+[ext_resource type="Script" uid="uid://c2x836gq3chhc" path="res://components/spawner_component.gd" id="3_7iodi"]
+
+[node name="Weapon" type="Node2D" unique_id=1244389419]
+script = ExtResource("1_qdhjr")
+bullet = ExtResource("2_ydd1j")
+
+[node name="SpawnerComponent" type="Node2D" parent="." unique_id=1067454452]
+script = ExtResource("3_7iodi")
+scene = ExtResource("2_ydd1j")
+metadata/_custom_type_script = "uid://c2x836gq3chhc"
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=216413661]

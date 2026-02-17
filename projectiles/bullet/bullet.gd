@@ -2,14 +2,16 @@ class_name Bullet
 extends Node2D
 
 @onready var visibleOnScreenNotifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
-@onready var hitboxComponent: HitboxComponent = $HitboxComponent as HitboxComponent
 
 func _ready() -> void:
 	visibleOnScreenNotifier.screen_exited.connect(queue_free)
-	hitboxComponent.hit_hurtbox.connect(queue_free.unbind(1))
+	%HitboxComponent.hit_hurtbox.connect(queue_free.unbind(1))
+
+func target(mask:GameManager.CollisionLayer) -> void:
+	%HitboxComponent.collision_mask = mask
 
 func target_player() -> void:
-	hitboxComponent.collision_mask = 1
+	%HitboxComponent.collision_mask = 1
 
 func target_enemies() -> void:
-	hitboxComponent.collision_mask = 2
+	%HitboxComponent.collision_mask = 2

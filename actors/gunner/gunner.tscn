@@ -15,8 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://crjvvlu3ca8k0" path="res://assets/goo/0012.png" id="13_rvkcg"]
 [ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="14_t0fld"]
 [ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="15_hl21u"]
-[ext_resource type="Script" uid="uid://c2x836gq3chhc" path="res://components/spawner_component.gd" id="16_bjhqy"]
-[ext_resource type="PackedScene" uid="uid://cstlssje27do0" path="res://projectiles/bullet/bullet.tscn" id="17_jtb2s"]
+[ext_resource type="PackedScene" uid="uid://ma0tsvblieoh" path="res://weapons/spread_shot/base.tscn" id="16_2inhk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bit6u"]
 animations = [{
@@ -87,7 +86,5 @@ metadata/_custom_type_script = "uid://bplsnnnm84yir"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=51897163]
 shape = SubResource("CircleShape2D_sfjoh")
 
-[node name="SpawnerComponent" type="Node2D" parent="." unique_id=1625653119]
-script = ExtResource("16_bjhqy")
-scene = ExtResource("17_jtb2s")
-metadata/_custom_type_script = "uid://c2x836gq3chhc"
+[node name="Weapon" parent="." unique_id=1244389419 instance=ExtResource("16_2inhk")]
+target = 1

@@ -33,3 +33,7 @@ position = Vector2(1077, 215)
 
 [node name="Gunner2" parent="." unique_id=606174623 instance=ExtResource("4_3o8ta")]
 position = Vector2(1936, 544)
+
+[node name="SubAlertMarker" type="Marker2D" parent="." unique_id=2125774518]
+unique_name_in_owner = true
+position = Vector2(248, 748)

@@ -4,9 +4,9 @@ extends Node2D
 @onready var moveComponent: MoveComponent = $MoveComponent as MoveComponent
 @onready var moveInputComponent: MoveInputComponent = $MoveInputComponent as MoveInputComponent
 @onready var positionClampComponent: PositionClampComponent = $PositionClampComponent as PositionClampComponent
-@onready var spawnerComponent: SpawnerComponent = $SpawnerComponent as SpawnerComponent
 @onready var weaponInputComponent: WeaponInputComponent = $WeaponInputComponent as WeaponInputComponent
 @onready var hurtboxComponent: HurtboxComponent = $HurtboxComponent as HurtboxComponent
+@onready var weapon: Weapon = $SpreadShot
 
 var rotationDeadzone:float = 0.2
 var rotationSpeed:float = 5.
@@ -16,8 +16,10 @@ var targetAngle:float
 func _ready() -> void:
 	weaponInputComponent.weaponFired.connect(fire_weapon)
 	hurtboxComponent.hurt.connect(queue_free.unbind(1))
+	EventHub.subAcknowledged.connect(_on_sub_acknowledged)
 	
 func _process(delta: float) -> void:
+	%SubThanks.rotation = -rotation
 	if GameManager.inputScheme == GameManager.InputScheme.KBM:
 		look_at(get_viewport().get_mouse_position())
 		rotate(deg_to_rad(90))
@@ -35,6 +37,11 @@ func _process(delta: float) -> void:
 			rotation = lerp_angle(rotation, targetAngle, rotationLerpWeight)
 	
 func fire_weapon() -> void:
-	var bullet = spawnerComponent.spawn(global_position, %Projectiles) as Bullet
-	bullet.rotation_degrees = rotation_degrees
-	bullet.target_enemies()
+	weapon.fire_at_angle(rotation_degrees)
+
+func _on_sub_acknowledged(username:String) -> void:
+	print_debug('in on sub ack')
+	%SubThanks.text = "Thanks for the sub, %s!" % username
+	%SubThanks.show()
+	await get_tree().create_timer(2).timeout
+	%SubThanks.hide()
