@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://c602xy1d2jwmu" path="res://components/weapons/weapon_input.gd" id="9_qm0t1"]
 [ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="10_qm0t1"]
 [ext_resource type="PackedScene" uid="uid://mofrhca0hve0" path="res://weapons/base/spread_shot.tscn" id="11_ep15l"]
+[ext_resource type="Script" uid="uid://cnh2qn5i60evh" path="res://components/stats_component.gd" id="12_2t2cy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ep15l"]
 radius = 20.0
@@ -67,3 +68,8 @@ offset_right = 536.0
 offset_bottom = -74.0
 theme_override_font_sizes/font_size = 32
 text = "Thanks for the sub, username!"
+
+[node name="StatsComponent" type="Node" parent="." unique_id=505982410]
+script = ExtResource("12_2t2cy")
+startingHealth = 5
+metadata/_custom_type_script = "uid://cnh2qn5i60evh"
