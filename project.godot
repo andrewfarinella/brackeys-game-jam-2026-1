@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-EventHub="*uid://dsa4llwrb4nbk"
 GameManager="*uid://dcdi1bxh6molo"
+EventHub="*uid://b41pyb5y2bk"
 
 [display]
 
