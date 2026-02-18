@@ -5,6 +5,7 @@ var subCount := 3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	EventHub.subAcknowledged.connect(show_sub_message.unbind(1))
+	EventHub.subIgnored.connect(show_sub_message.unbind(1))
 	show_sub_message()
 	
 func increase_sub_count() -> void:

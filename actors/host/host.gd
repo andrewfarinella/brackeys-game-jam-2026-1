@@ -2,11 +2,12 @@ class_name HostCharacter
 extends Node2D
 
 @onready var moveComponent: MoveComponent = $MoveComponent as MoveComponent
-@onready var moveInputComponent: MoveInputComponent = $MoveInputComponent as MoveInputComponent
 @onready var positionClampComponent: PositionClampComponent = $PositionClampComponent as PositionClampComponent
 @onready var weaponInputComponent: WeaponInputComponent = $WeaponInputComponent as WeaponInputComponent
 @onready var hurtboxComponent: HurtboxComponent = $HurtboxComponent as HurtboxComponent
-@onready var weapon: Weapon = $SpreadShot
+@onready var weapon: Weapon = $Weapon
+@onready var damageComponent: DamageComponent = $DamageComponent
+@onready var camera:Camera2D = $Camera2D
 
 var rotationDeadzone:float = 0.2
 var rotationSpeed:float = 5.
@@ -15,13 +16,13 @@ var targetAngle:float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	weaponInputComponent.weaponFired.connect(fire_weapon)
-	hurtboxComponent.hurt.connect(queue_free.unbind(1))
 	EventHub.subAcknowledged.connect(_on_sub_acknowledged)
+	#damageComponent.damageTaken.connect(push_back)
 	
 func _process(delta: float) -> void:
 	%SubThanks.rotation = -rotation
 	if GameManager.inputScheme == GameManager.InputScheme.KBM:
-		look_at(get_viewport().get_mouse_position())
+		look_at(get_global_mouse_position())
 		rotate(deg_to_rad(90))
 	else:
 		var inputDirection := Vector2(
@@ -45,3 +46,6 @@ func _on_sub_acknowledged(username:String) -> void:
 	%SubThanks.show()
 	await get_tree().create_timer(2).timeout
 	%SubThanks.hide()
+
+#func push_back(hitbox:HitboxComponent) -> void:
+	#get_angle_to(hitbox.global_position)

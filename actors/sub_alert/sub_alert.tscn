@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://p5oqw0jhgn6b" path="res://actors/sub_alert/sub_alert.gd" id="1_e251x"]
 [ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="1_qxrrj"]
+[ext_resource type="Script" uid="uid://cnh2qn5i60evh" path="res://components/stats_component.gd" id="3_5nsig"]
+[ext_resource type="Script" uid="uid://c7f802exmchc0" path="res://components/damage_component.gd" id="4_os0ry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e251x"]
 size = Vector2(1147, 60)
@@ -29,3 +31,14 @@ metadata/_custom_type_script = "uid://bplsnnnm84yir"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=2095477159]
 position = Vector2(579.5, 38)
 shape = SubResource("RectangleShape2D_e251x")
+
+[node name="StatsComponent" type="Node" parent="." unique_id=559638637]
+script = ExtResource("3_5nsig")
+startingHealth = 10
+metadata/_custom_type_script = "uid://cnh2qn5i60evh"
+
+[node name="DamageComponent" type="Node" parent="." unique_id=1030955983 node_paths=PackedStringArray("hurtboxComponent", "statsComponent")]
+script = ExtResource("4_os0ry")
+hurtboxComponent = NodePath("../HurtboxComponent")
+statsComponent = NodePath("../StatsComponent")
+metadata/_custom_type_script = "uid://c7f802exmchc0"

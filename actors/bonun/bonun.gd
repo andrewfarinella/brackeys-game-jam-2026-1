@@ -9,7 +9,8 @@ func _ready() -> void:
 	fire_weapon()
 
 func fire_weapon() -> void:
-	await get_tree().create_timer(randf_range(0.9, 1.2)).timeout
+	await get_tree().create_timer(weapon.fireRateInSeconds).timeout
+	if GameManager.hostCharacter == null: return
 	var startingRotation := rotation_degrees
 	look_at(GameManager.hostCharacter.global_position)
 	rotate(deg_to_rad(90))

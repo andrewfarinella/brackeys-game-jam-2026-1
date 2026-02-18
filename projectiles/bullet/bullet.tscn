@@ -3,23 +3,44 @@
 [ext_resource type="Script" uid="uid://dsfm5j2tcj576" path="res://projectiles/bullet/bullet.gd" id="1_g1w5t"]
 [ext_resource type="Texture2D" uid="uid://tepeb3ejwbwj" path="res://icon.svg" id="1_hwob3"]
 [ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="2_1mdu2"]
+[ext_resource type="Script" uid="uid://wad5t71dh374" path="res://components/movement/move_input_straight_ahead.gd" id="4_pofd3"]
 [ext_resource type="Script" uid="uid://dung32ibr41lw" path="res://components/hitbox_component.gd" id="4_sils6"]
+[ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="5_hurb3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sils6"]
+size = Vector2(128, 128)
+
+[sub_resource type="Resource" id="Resource_s8i05"]
+script = ExtResource("5_hurb3")
+speed = 2000
+metadata/_custom_type_script = "uid://dwftx2inc4tqn"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pofd3"]
 size = Vector2(128, 128)
 
-[node name="Bullet" type="Node2D" unique_id=463933996]
+[node name="Bullet" type="Area2D" unique_id=1348918752]
 scale = Vector2(0.25, 0.25)
+collision_mask = 5
 script = ExtResource("1_g1w5t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=244518843]
 texture = ExtResource("1_hwob3")
 
-[node name="MoveComponent" type="Node" parent="." unique_id=1344582234 node_paths=PackedStringArray("actor")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=272582863]
+shape = SubResource("RectangleShape2D_sils6")
+
+[node name="MoveComponent" type="Node" parent="." unique_id=1344582234 node_paths=PackedStringArray("actor", "moveInputComponent")]
 script = ExtResource("2_1mdu2")
 actor = NodePath("..")
 velocity = Vector2(0, -1500)
+moveInputComponent = NodePath("../MoveInputStraightAheadComponent")
 metadata/_custom_type_script = "uid://0jiyn3ggg7i7"
+
+[node name="MoveInputStraightAheadComponent" type="Node2D" parent="." unique_id=218807341 node_paths=PackedStringArray("moveComponent")]
+script = ExtResource("4_pofd3")
+moveComponent = NodePath("../MoveComponent")
+moveStats = SubResource("Resource_s8i05")
+metadata/_custom_type_script = "uid://wad5t71dh374"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=979243424]
 scale = Vector2(0.07999992, 1)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dg5g4p3gcq824"]
 
 [ext_resource type="Texture2D" uid="uid://bwid5088rkysb" path="res://assets/goo/0001.png" id="1_0abj3"]
-[ext_resource type="Script" uid="uid://b0bim7arex81p" path="res://actors/goo/goo.gd" id="1_sfjoh"]
+[ext_resource type="Script" uid="uid://b0bim7arex81p" path="res://actors/slob/slob.gd" id="1_sfjoh"]
 [ext_resource type="Texture2D" uid="uid://bhhf8f1i6bjp1" path="res://assets/goo/0002.png" id="2_nvo6f"]
 [ext_resource type="Texture2D" uid="uid://bddhxft7i1nk7" path="res://assets/goo/0003.png" id="3_sfjoh"]
 [ext_resource type="Texture2D" uid="uid://borsluy5s3ux7" path="res://assets/goo/0004.png" id="4_m3pr7"]
@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://crjvvlu3ca8k0" path="res://assets/goo/0012.png" id="12_e6apw"]
 [ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="13_10ifj"]
 [ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="14_nvo6f"]
+[ext_resource type="Script" uid="uid://dsqm8jb3i2qou" path="res://components/movement/move_input_path_finding.gd" id="15_3tx8k"]
+[ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="16_1d5tq"]
+[ext_resource type="Script" uid="uid://dung32ibr41lw" path="res://components/hitbox_component.gd" id="16_chxcw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bit6u"]
 animations = [{
@@ -60,10 +63,21 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_chxcw"]
+radius = 47.759815
+
+[sub_resource type="Resource" id="Resource_3tx8k"]
+script = ExtResource("16_1d5tq")
+metadata/_custom_type_script = "uid://dwftx2inc4tqn"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_sfjoh"]
 radius = 48.270073
 
-[node name="Goo" type="Node2D" unique_id=1108700535]
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1246"]
+radius = 36.013885
+
+[node name="Goo" type="CharacterBody2D" unique_id=1772619836]
+collision_mask = 5
 script = ExtResource("1_sfjoh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=395704127]
@@ -71,10 +85,20 @@ sprite_frames = SubResource("SpriteFrames_bit6u")
 autoplay = "default"
 frame_progress = 0.77718663
 
-[node name="MoveComponent" type="Node" parent="." unique_id=885344095 node_paths=PackedStringArray("actor")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1196546586]
+shape = SubResource("CircleShape2D_chxcw")
+
+[node name="MoveComponent" type="Node" parent="." unique_id=885344095 node_paths=PackedStringArray("actor", "moveInputComponent")]
 script = ExtResource("13_10ifj")
 actor = NodePath("..")
 velocity = Vector2(0, 230)
+moveInputComponent = NodePath("../MoveInputPathFindingComponent")
+
+[node name="MoveInputPathFindingComponent" type="Node2D" parent="." unique_id=575347089 node_paths=PackedStringArray("moveComponent")]
+script = ExtResource("15_3tx8k")
+moveComponent = NodePath("../MoveComponent")
+moveStats = SubResource("Resource_3tx8k")
+metadata/_custom_type_script = "uid://dsqm8jb3i2qou"
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=689255192]
 collision_layer = 2
@@ -84,3 +108,11 @@ metadata/_custom_type_script = "uid://bplsnnnm84yir"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=51897163]
 shape = SubResource("CircleShape2D_sfjoh")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=274012460]
+collision_layer = 0
+script = ExtResource("16_chxcw")
+metadata/_custom_type_script = "uid://dung32ibr41lw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1842452808]
+shape = SubResource("CircleShape2D_c1246")

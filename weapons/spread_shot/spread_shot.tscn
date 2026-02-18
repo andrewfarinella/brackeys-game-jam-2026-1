@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://mofrhca0hve0"]
 
-[ext_resource type="Script" uid="uid://df5r5huj0rx3k" path="res://weapons/base/spread_shot.gd" id="1_4yjfm"]
+[ext_resource type="Script" uid="uid://df5r5huj0rx3k" path="res://weapons/spread_shot/spread_shot.gd" id="1_4yjfm"]
 [ext_resource type="PackedScene" uid="uid://cstlssje27do0" path="res://projectiles/bullet/bullet.tscn" id="2_lcw8x"]
 [ext_resource type="Script" uid="uid://c2x836gq3chhc" path="res://components/spawner_component.gd" id="3_juun3"]
 

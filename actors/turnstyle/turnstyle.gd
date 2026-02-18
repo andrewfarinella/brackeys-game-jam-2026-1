@@ -1,0 +1,29 @@
+extends CharacterBody2D
+@onready var hurtboxComponent: HurtboxComponent = $HurtboxComponent as HurtboxComponent
+@onready var weapon:Weapon = $Weapon as Weapon
+@onready var moveComponent: MoveComponent = $MoveComponent
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	hurtboxComponent.hurt.connect(queue_free.unbind(1))
+	fire_weapon()
+	
+func _physics_process(delta: float) -> void:
+	weapon.rotate(1)
+
+func fire_weapon() -> void:
+	await get_tree().create_timer(weapon.fireRateInSeconds).timeout
+	if GameManager.hostCharacter == null: return
+	var startingRotation := rotation_degrees
+	look_at(GameManager.hostCharacter.global_position)
+	rotate(deg_to_rad(90))
+	var endingRotation := rotation_degrees
+	moveComponent.velocity = moveComponent.velocity.rotated(deg_to_rad(endingRotation - startingRotation))
+	
+	weapon.fire()
+	#var bullet = spawnerComponent.spawn(global_position, %Projectiles) as Bullet
+	#bullet.look_at(GameManager.hostCharacter.global_position)
+	#bullet.rotate(deg_to_rad(90))
+	#bullet.target_player()
+	fire_weapon()
+	pass

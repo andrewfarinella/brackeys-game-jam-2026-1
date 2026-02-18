@@ -1,9 +1,6 @@
-@abstract
-class_name MoveInputComponent
-extends Node2D
+class_name MoveInputPathFindingComponent
+extends MoveInputComponent
 
-@export var moveComponent: MoveComponent
-@export var moveStats: MovementStats
 #
 #var isSprinting := false
 #
@@ -15,5 +12,5 @@ extends Node2D
 	#var speed = moveStats.sprintSpeed if isSprinting else moveStats.speed
 	#moveComponent.velocity = Vector2(xAxis * speed, yAxis * speed)
 
-@abstract
-func get_direction() -> Vector2
+func get_direction() -> Vector2:
+	return global_position.direction_to(GameManager.hostCharacter.global_position)

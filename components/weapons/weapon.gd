@@ -8,6 +8,9 @@ extends Node2D
 @export var bullet:PackedScene
 
 var canFire := true
+var fireRateInSeconds:float:
+	get:
+		return (60./fireRate)/60.
 
 @abstract
 func fire_at_angle(rotationDegrees:float) -> void

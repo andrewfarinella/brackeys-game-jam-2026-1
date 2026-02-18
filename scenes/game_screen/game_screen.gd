@@ -13,8 +13,6 @@ func _on_weapon_fired(bullet:Bullet) -> void:
 
 func display_sub_alert(username:String, duration:int) -> void:
 	var newAlert:SubAlert = subAlert.instantiate().duplicate() as SubAlert
-	newAlert.setup(username, duration)
-	add_child(newAlert)
-	newAlert.global_position = %SubAlertMarker.global_position
+	newAlert.setup(username, duration, self, %SubAlertMarker.position)
 	newAlert.display_alert()
 	

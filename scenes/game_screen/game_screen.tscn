@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dodd17x73i3fw" path="res://actors/host/host.tscn" id="1_3uriw"]
 [ext_resource type="Script" uid="uid://bv2dfpxs3xfe1" path="res://scenes/game_screen/game_screen.gd" id="1_4hxb2"]
-[ext_resource type="PackedScene" uid="uid://dg5g4p3gcq824" path="res://actors/goo/goo.tscn" id="2_dv2sx"]
-[ext_resource type="PackedScene" uid="uid://bgo8l1gfu5l4w" path="res://actors/gunner/gunner.tscn" id="4_3o8ta"]
+[ext_resource type="PackedScene" uid="uid://dg5g4p3gcq824" path="res://actors/slob/slob.tscn" id="2_dv2sx"]
+[ext_resource type="PackedScene" uid="uid://88codax7twsl" path="res://actors/turnstyle/turnstyle.tscn" id="4_3bkh3"]
+[ext_resource type="PackedScene" uid="uid://bgo8l1gfu5l4w" path="res://actors/bonun/bonun.tscn" id="4_3o8ta"]
+[ext_resource type="PackedScene" uid="uid://dfgf4u16du4bf" path="res://actors/obstacle/obstacle.tscn" id="5_i4aiw"]
 
 [node name="GameScreen" type="Node2D" unique_id=1421490685]
 script = ExtResource("1_4hxb2")
@@ -13,27 +15,44 @@ metadata/_edit_vertical_guides_ = [3073.0]
 [node name="Host" parent="." unique_id=85555668 instance=ExtResource("1_3uriw")]
 position = Vector2(1984, 1671)
 
-[node name="Goo" parent="." unique_id=1108700535 instance=ExtResource("2_dv2sx")]
+[node name="Slob" parent="." unique_id=1108700535 instance=ExtResource("2_dv2sx")]
 position = Vector2(1576, 294)
 
-[node name="Goo2" parent="." unique_id=191565511 instance=ExtResource("2_dv2sx")]
+[node name="Slob2" parent="." unique_id=191565511 instance=ExtResource("2_dv2sx")]
 position = Vector2(2252, 350)
 
-[node name="Goo3" parent="." unique_id=984507669 instance=ExtResource("2_dv2sx")]
+[node name="Slob3" parent="." unique_id=984507669 instance=ExtResource("2_dv2sx")]
 position = Vector2(1112, 525)
 
-[node name="Goo4" parent="." unique_id=268140185 instance=ExtResource("2_dv2sx")]
+[node name="Slob4" parent="." unique_id=268140185 instance=ExtResource("2_dv2sx")]
 position = Vector2(424, 340)
+
+[node name="Turnstyle" parent="." unique_id=1259638105 instance=ExtResource("4_3bkh3")]
+position = Vector2(1904, 14)
+
+[node name="Bonun" parent="." unique_id=1319699862 instance=ExtResource("4_3o8ta")]
+position = Vector2(1077, 215)
+
+[node name="Bonun2" parent="." unique_id=606174623 instance=ExtResource("4_3o8ta")]
+position = Vector2(1936, 544)
 
 [node name="Projectiles" type="Node" parent="." unique_id=1617358623]
 unique_name_in_owner = true
 
-[node name="Gunner" parent="." unique_id=1319699862 instance=ExtResource("4_3o8ta")]
-position = Vector2(1077, 215)
+[node name="Obstacle" parent="." unique_id=114609774 instance=ExtResource("5_i4aiw")]
+position = Vector2(818, 916)
 
-[node name="Gunner2" parent="." unique_id=606174623 instance=ExtResource("4_3o8ta")]
-position = Vector2(1936, 544)
+[node name="Obstacle2" parent="." unique_id=1712200961 instance=ExtResource("5_i4aiw")]
+position = Vector2(2486, 906)
 
-[node name="SubAlertMarker" type="Marker2D" parent="." unique_id=2125774518]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1830236020]
+layer = 2
+
+[node name="SubAlertMarker" type="Control" parent="CanvasLayer" unique_id=1316980128]
 unique_name_in_owner = true
-position = Vector2(248, 748)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 570.0
+offset_top = 628.0
+offset_right = 570.0
+offset_bottom = 628.0

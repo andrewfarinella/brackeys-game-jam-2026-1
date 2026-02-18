@@ -1,10 +1,6 @@
-@abstract
-class_name MoveInputComponent
-extends Node2D
+class_name MoveInputPlayerComponent
+extends MoveInputComponent
 
-@export var moveComponent: MoveComponent
-@export var moveStats: MovementStats
-#
 #var isSprinting := false
 #
 #func _input(_event: InputEvent) -> void:
@@ -15,5 +11,5 @@ extends Node2D
 	#var speed = moveStats.sprintSpeed if isSprinting else moveStats.speed
 	#moveComponent.velocity = Vector2(xAxis * speed, yAxis * speed)
 
-@abstract
-func get_direction() -> Vector2
+func get_direction() -> Vector2:
+	return Input.get_vector("Left", "Right", "Up", "Down")

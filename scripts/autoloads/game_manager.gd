@@ -6,9 +6,10 @@ enum InputScheme {
 }
 
 enum CollisionLayer {
-	None,
-	Player,
-	Enemy
+	None = 0,
+	Player = 1 << 0,
+	Enemy = 1 << 1,
+	Obstacle = 1 << 2
 }
 
 var inputScheme:InputScheme = InputScheme.KBM
