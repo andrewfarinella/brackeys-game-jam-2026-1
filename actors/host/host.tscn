@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://cnh2qn5i60evh" path="res://components/stats_component.gd" id="12_2t2cy"]
 [ext_resource type="Script" uid="uid://betamc0v85hha" path="res://components/destroyed_component.gd" id="13_eiou1"]
 [ext_resource type="Script" uid="uid://c7f802exmchc0" path="res://components/damage_component.gd" id="13_gi851"]
+[ext_resource type="Script" uid="uid://dw2wvv8gu0jlt" path="res://components/status_effect_component.gd" id="19_2xfyf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i6poo"]
 animations = [{
@@ -43,8 +44,8 @@ animations = [{
 size = Vector2(120, 118)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uqw7"]
-radius = 47.24
-height = 169.64
+radius = 35.0
+height = 158.0
 
 [sub_resource type="Resource" id="Resource_08vjr"]
 script = ExtResource("5_tjll5")
@@ -52,8 +53,9 @@ speed = 1000
 sprintSpeed = 1500
 metadata/_custom_type_script = "uid://dwftx2inc4tqn"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ep15l"]
-radius = 20.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2xfyf"]
+radius = 35.0
+height = 128.0
 
 [node name="Host" type="CharacterBody2D" unique_id=1093976220]
 collision_mask = 5
@@ -75,7 +77,7 @@ visible = false
 shape = SubResource("RectangleShape2D_gi851")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=343384637]
-position = Vector2(-8, -1)
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_5uqw7")
 
 [node name="MoveComponent" type="Node" parent="." unique_id=204262942 node_paths=PackedStringArray("actor", "moveInputComponent")]
@@ -105,7 +107,7 @@ script = ExtResource("10_qm0t1")
 metadata/_custom_type_script = "uid://bplsnnnm84yir"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1511836439]
-shape = SubResource("CircleShape2D_ep15l")
+shape = SubResource("CapsuleShape2D_2xfyf")
 
 [node name="Weapon" parent="." unique_id=1244389419 instance=ExtResource("11_tjll5")]
 position = Vector2(52, -119)
@@ -139,3 +141,8 @@ script = ExtResource("13_eiou1")
 actor = NodePath("..")
 statsComponent = NodePath("../StatsComponent")
 metadata/_custom_type_script = "uid://betamc0v85hha"
+
+[node name="StatusEffectComponent" type="Node" parent="." unique_id=718866560 node_paths=PackedStringArray("actor")]
+script = ExtResource("19_2xfyf")
+actor = NodePath("..")
+metadata/_custom_type_script = "uid://dw2wvv8gu0jlt"

@@ -11,5 +11,5 @@ func _ready():
 func _on_hurtbox_entered(hurtbox: Node):
 	if not hurtbox is HurtboxComponent: return
 	if hurtbox.is_invincible: return
-	hit_hurtbox.emit(hurtbox)
 	hurtbox.hurt.emit(self)
+	hit_hurtbox.emit(hurtbox)

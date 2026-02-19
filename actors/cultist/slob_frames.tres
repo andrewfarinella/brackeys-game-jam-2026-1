@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cd2r6mau8uxnm"]
+
+[ext_resource type="Texture2D" uid="uid://fr5xnaa0ciiw" path="res://assets/enemies/slob/0001.png" id="1_b00of"]
+[ext_resource type="Texture2D" uid="uid://cyb6vhdvopn8a" path="res://assets/enemies/slob/0004.png" id="2_78cqt"]
+[ext_resource type="Texture2D" uid="uid://bma0suqtfxh4g" path="res://assets/enemies/slob/0007.png" id="3_b3lhh"]
+[ext_resource type="Texture2D" uid="uid://br18sx1htqitv" path="res://assets/enemies/slob/0010.png" id="4_80dc1"]
+[ext_resource type="Texture2D" uid="uid://ceedqec03i8mi" path="res://assets/enemies/slob/0013.png" id="5_m812j"]
+[ext_resource type="Texture2D" uid="uid://et2wdqgnmga" path="res://assets/enemies/slob/0016.png" id="6_vw0m5"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b00of")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_78cqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b3lhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_80dc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m812j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vw0m5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]

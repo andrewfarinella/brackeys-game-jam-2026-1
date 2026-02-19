@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bdj6m6me0njt2"]
+
+[ext_resource type="Script" uid="uid://dfydj648mdwfd" path="res://actors/cultist/cultist.gd" id="1_urkrh"]
+[ext_resource type="Script" uid="uid://ciq2xp5myv6l5" path="res://components/apply_status_effect_component.gd" id="2_m64h5"]
+[ext_resource type="Script" uid="uid://of6po6kklwgw" path="res://scripts/resources/status_effect_bleed.gd" id="3_80bk7"]
+[ext_resource type="SpriteFrames" uid="uid://cd2r6mau8uxnm" path="res://actors/cultist/slob_frames.tres" id="4_v58qw"]
+[ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="5_xccre"]
+[ext_resource type="Script" uid="uid://dsqm8jb3i2qou" path="res://components/movement/move_input_path_finding.gd" id="6_do8kp"]
+[ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="7_bm7h4"]
+[ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="8_wrqo5"]
+[ext_resource type="Script" uid="uid://dung32ibr41lw" path="res://components/hitbox_component.gd" id="9_lmk23"]
+[ext_resource type="Script" uid="uid://ctm4utg5yhsxf" path="res://components/drops_component.gd" id="10_m63op"]
+[ext_resource type="Script" uid="uid://cnh2qn5i60evh" path="res://components/stats_component.gd" id="11_kusnl"]
+[ext_resource type="Script" uid="uid://c7f802exmchc0" path="res://components/damage_component.gd" id="12_6u3hs"]
+[ext_resource type="Script" uid="uid://betamc0v85hha" path="res://components/destroyed_component.gd" id="13_t0y8v"]
+
+[sub_resource type="Resource" id="Resource_yugii"]
+script = ExtResource("3_80bk7")
+name = "Bleed"
+metadata/_custom_type_script = "uid://of6po6kklwgw"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_chxcw"]
+radius = 41.01219
+
+[sub_resource type="Resource" id="Resource_3tx8k"]
+script = ExtResource("7_bm7h4")
+metadata/_custom_type_script = "uid://dwftx2inc4tqn"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sfjoh"]
+radius = 48.270073
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1246"]
+radius = 47.0
+
+[node name="Cultist" type="CharacterBody2D" unique_id=1772619836]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_urkrh")
+
+[node name="ApplyStatusEffectComponent" type="Node" parent="." unique_id=1884868571 node_paths=PackedStringArray("hitboxComponent")]
+script = ExtResource("2_m64h5")
+statusEffect = SubResource("Resource_yugii")
+hitboxComponent = NodePath("../HitboxComponent")
+metadata/_custom_type_script = "uid://ciq2xp5myv6l5"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=395704127]
+scale = Vector2(0.64, 0.64)
+sprite_frames = ExtResource("4_v58qw")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1196546586]
+shape = SubResource("CircleShape2D_chxcw")
+
+[node name="MoveComponent" type="Node" parent="." unique_id=885344095 node_paths=PackedStringArray("actor", "moveInputComponent")]
+script = ExtResource("5_xccre")
+actor = NodePath("..")
+velocity = Vector2(0, 230)
+moveInputComponent = NodePath("../MoveInputPathFindingComponent")
+
+[node name="MoveInputPathFindingComponent" type="Node2D" parent="." unique_id=575347089 node_paths=PackedStringArray("moveComponent")]
+script = ExtResource("6_do8kp")
+moveComponent = NodePath("../MoveComponent")
+moveStats = SubResource("Resource_3tx8k")
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=689255192]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_wrqo5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=51897163]
+shape = SubResource("CircleShape2D_sfjoh")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=274012460]
+collision_layer = 0
+script = ExtResource("9_lmk23")
+metadata/_custom_type_script = "uid://dung32ibr41lw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1842452808]
+shape = SubResource("CircleShape2D_c1246")
+
+[node name="DropsComponent" type="Node" parent="." unique_id=961523048]
+script = ExtResource("10_m63op")
+viewsRewardBase = 16
+metadata/_custom_type_script = "uid://ctm4utg5yhsxf"
+
+[node name="StatsComponent" type="Node" parent="." unique_id=1430424088]
+script = ExtResource("11_kusnl")
+startingHealth = 2
+metadata/_custom_type_script = "uid://cnh2qn5i60evh"
+
+[node name="DamageComponent" type="Node" parent="." unique_id=1011509843 node_paths=PackedStringArray("hurtboxComponent", "statsComponent") groups=["DamageComponents"]]
+script = ExtResource("12_6u3hs")
+hurtboxComponent = NodePath("../HurtboxComponent")
+statsComponent = NodePath("../StatsComponent")
+metadata/_custom_type_script = "uid://c7f802exmchc0"
+
+[node name="DestroyedComponent" type="Node" parent="." unique_id=1591146093 node_paths=PackedStringArray("actor", "statsComponent")]
+script = ExtResource("13_t0y8v")
+actor = NodePath("..")
+statsComponent = NodePath("../StatsComponent")
+metadata/_custom_type_script = "uid://betamc0v85hha"
