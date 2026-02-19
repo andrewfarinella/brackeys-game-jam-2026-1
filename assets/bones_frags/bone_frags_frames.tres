@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://crx66kbhw1fou"]
+
+[ext_resource type="Texture2D" uid="uid://cwyki5oxwu6g8" path="res://assets/bones_frags/boneFrag1.png" id="1_pe030"]
+[ext_resource type="Texture2D" uid="uid://dl0jasxiou0yn" path="res://assets/bones_frags/boneFrag2.png" id="2_ene3k"]
+[ext_resource type="Texture2D" uid="uid://bbujdgexhn6c4" path="res://assets/bones_frags/boneFrag3.png" id="3_13vlu"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pe030")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ene3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_13vlu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
