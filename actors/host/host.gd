@@ -2,7 +2,6 @@ class_name HostCharacter
 extends Node2D
 
 @onready var moveComponent: MoveComponent = $MoveComponent as MoveComponent
-@onready var positionClampComponent: PositionClampComponent = $PositionClampComponent as PositionClampComponent
 @onready var weaponInputComponent: WeaponInputComponent = $WeaponInputComponent as WeaponInputComponent
 @onready var hurtboxComponent: HurtboxComponent = $HurtboxComponent as HurtboxComponent
 @onready var weapon: Weapon = $Weapon
