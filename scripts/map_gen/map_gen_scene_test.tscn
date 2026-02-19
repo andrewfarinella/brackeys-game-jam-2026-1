@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bwy4857cl3oi0"]
+
+[ext_resource type="Script" uid="uid://xydtxoey2ybm" path="res://scripts/map_gen/map_gen.gd" id="1_t4e0j"]
+
+[node name="Node2D" type="Node2D" unique_id=918196414 node_paths=PackedStringArray("textureRect")]
+script = ExtResource("1_t4e0j")
+textureRect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1941776219]
+offset_right = 40.0
+offset_bottom = 40.0

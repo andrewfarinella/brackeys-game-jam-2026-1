@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bq64m4xeg0wb5"]
+
+[ext_resource type="Script" uid="uid://dwqix8wrajeg6" path="res://elements/producer_button_panel/button_panel_populated.gd" id="1_tbtrs"]
+[ext_resource type="PackedScene" uid="uid://clt80o83uvodr" path="res://elements/producer_button_panel/producer_button_panel.tscn" id="1_vpj2t"]
+[ext_resource type="PackedScene" uid="uid://bt5xnik4pybmw" path="res://elements/square_buttons/square_button_green.tscn" id="2_lf4a1"]
+[ext_resource type="PackedScene" uid="uid://yflrqclje2j8" path="res://elements/square_buttons/square_button_yellow.tscn" id="3_4n42c"]
+[ext_resource type="PackedScene" uid="uid://dp1pex6gpb1c5" path="res://elements/liveButton/live_button.tscn" id="4_lf4a1"]
+[ext_resource type="PackedScene" uid="uid://b3n65addo12ns" path="res://elements/button_panel_label/button_panel_label.tscn" id="5_1u2c5"]
+[ext_resource type="FontFile" uid="uid://bocclpsugriyj" path="res://assets/fonts/Cousine-Bold.ttf" id="6_tbtrs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gwmeb"]
+font = ExtResource("6_tbtrs")
+font_size = 80
+font_color = Color(0.65012825, 0.6501283, 0.6501282, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1u2c5"]
+font = ExtResource("6_tbtrs")
+font_size = 80
+font_color = Color(0.6509804, 0.6509804, 0.6509804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbtrs"]
+font = ExtResource("6_tbtrs")
+font_size = 80
+font_color = Color(0.6509804, 0.6509804, 0.6509804, 1)
+
+[node name="ButtonPanel" type="Node2D" unique_id=131211255 node_paths=PackedStringArray("prepare_button")]
+script = ExtResource("1_tbtrs")
+prepare_button = NodePath("PrepareLabelContainer/SquareButtonGreen")
+
+[node name="ProducerButtonPanel" parent="." unique_id=1213121096 instance=ExtResource("1_vpj2t")]
+scale = Vector2(3.68, 3.68)
+
+[node name="PrepareLabelContainer" type="Node2D" parent="." unique_id=62494075]
+position = Vector2(-741, 580)
+
+[node name="ButtonPanelLabelPrep" parent="PrepareLabelContainer" unique_id=814851621 instance=ExtResource("5_1u2c5")]
+position = Vector2(0, -4)
+scale = Vector2(1.27, 1)
+
+[node name="Label" type="Label" parent="PrepareLabelContainer" unique_id=2144399318]
+offset_left = -167.0
+offset_top = -46.0
+offset_right = 169.0
+offset_bottom = 46.0
+text = "PREPARE"
+label_settings = SubResource("LabelSettings_gwmeb")
+
+[node name="SquareButtonGreen" parent="PrepareLabelContainer" unique_id=1223691789 instance=ExtResource("2_lf4a1")]
+offset_left = -145.99994
+offset_top = 100.0
+offset_right = -105.99994
+offset_bottom = 140.0
+scale = Vector2(1.37, 1.37)
+
+[node name="ModerateLabelContainer" type="Node2D" parent="." unique_id=2144135478]
+position = Vector2(-126, 582)
+
+[node name="ButtonPanelLabelMod" parent="ModerateLabelContainer" unique_id=2096169164 instance=ExtResource("5_1u2c5")]
+position = Vector2(0, -4)
+scale = Vector2(1.51, 1)
+
+[node name="Label" type="Label" parent="ModerateLabelContainer" unique_id=440219286]
+offset_left = -192.0
+offset_top = -46.0
+offset_right = 192.0
+offset_bottom = 46.0
+text = "MODERATE"
+label_settings = SubResource("LabelSettings_1u2c5")
+
+[node name="SquareButtonYellow" parent="ModerateLabelContainer" unique_id=1809218759 instance=ExtResource("3_4n42c")]
+position = Vector2(-174, 95)
+scale = Vector2(1.37, 1.37)
+
+[node name="GoLiveLabelContainer" type="Node2D" parent="." unique_id=388256060]
+position = Vector2(715, 580)
+
+[node name="ButtonPanelLabel" parent="GoLiveLabelContainer" unique_id=1482050437 instance=ExtResource("5_1u2c5")]
+position = Vector2(-1, -4)
+scale = Vector2(1.29, 1)
+
+[node name="Label" type="Label" parent="GoLiveLabelContainer" unique_id=951586771]
+offset_left = -168.0
+offset_top = -46.0
+offset_right = 168.0
+offset_bottom = 46.0
+text = "GO LIVE"
+label_settings = SubResource("LabelSettings_tbtrs")
+
+[node name="LiveButton" parent="GoLiveLabelContainer" unique_id=753787253 instance=ExtResource("4_lf4a1")]
+position = Vector2(-263, 87)

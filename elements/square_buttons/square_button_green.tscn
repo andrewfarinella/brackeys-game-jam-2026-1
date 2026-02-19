@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bt5xnik4pybmw"]
+
+[ext_resource type="Texture2D" uid="uid://2tkg32j1xr2c" path="res://assets/squareButtons/greenInactive.png" id="1_2jtou"]
+[ext_resource type="Texture2D" uid="uid://dtrcxph7gp4h6" path="res://assets/squareButtons/greenActive.png" id="2_eirxi"]
+
+[node name="GreenButton" type="TextureButton" unique_id=817186885]
+offset_right = 40.0
+offset_bottom = 40.0
+toggle_mode = true
+texture_normal = ExtResource("1_2jtou")
+texture_pressed = ExtResource("2_eirxi")

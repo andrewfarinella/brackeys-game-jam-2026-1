@@ -3,11 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bggr3brtgvodq" path="res://assets/liveButton/liveButtonInactive.png" id="1_3f5xo"]
 [ext_resource type="Texture2D" uid="uid://ctdlyyq83hw12" path="res://assets/liveButton/liveButtonActive.png" id="2_imgrt"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_j7sh3"]
-font_size = 137
-font_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(0.1, 1)
-
 [node name="LiveButton" type="Node2D" unique_id=753787253]
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1435967922]
@@ -19,8 +14,3 @@ layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("1_3f5xo")
 texture_pressed = ExtResource("2_imgrt")
-
-[node name="Label" type="Label" parent="CenterContainer" unique_id=963099904]
-layout_mode = 2
-text = "LIVE"
-label_settings = SubResource("LabelSettings_j7sh3")

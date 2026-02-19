@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b3n65addo12ns"]
+
+[ext_resource type="Texture2D" uid="uid://rolxx73om6dy" path="res://assets/buttonLabel/buttonLabel.png" id="1_hui4a"]
+
+[node name="ButtonPanelLabel" type="Node2D" unique_id=814851621]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=632752919]
+texture = ExtResource("1_hui4a")

@@ -1,67 +1,12 @@
 [gd_scene format=3 uid="uid://dg5g4p3gcq824"]
 
-[ext_resource type="Texture2D" uid="uid://bwid5088rkysb" path="res://assets/goo/0001.png" id="1_0abj3"]
 [ext_resource type="Script" uid="uid://b0bim7arex81p" path="res://actors/slob/slob.gd" id="1_sfjoh"]
-[ext_resource type="Texture2D" uid="uid://bhhf8f1i6bjp1" path="res://assets/goo/0002.png" id="2_nvo6f"]
-[ext_resource type="Texture2D" uid="uid://bddhxft7i1nk7" path="res://assets/goo/0003.png" id="3_sfjoh"]
-[ext_resource type="Texture2D" uid="uid://borsluy5s3ux7" path="res://assets/goo/0004.png" id="4_m3pr7"]
-[ext_resource type="Texture2D" uid="uid://que7b8lgunli" path="res://assets/goo/0005.png" id="5_j1xxo"]
-[ext_resource type="Texture2D" uid="uid://b77g7bn26up36" path="res://assets/goo/0006.png" id="6_xp71c"]
-[ext_resource type="Texture2D" uid="uid://c6ocfwal5063i" path="res://assets/goo/0007.png" id="7_wtef8"]
-[ext_resource type="Texture2D" uid="uid://b0oxfylicph8s" path="res://assets/goo/0008.png" id="8_8kiil"]
-[ext_resource type="Texture2D" uid="uid://cgvfuwvyo614j" path="res://assets/goo/0009.png" id="9_dwgxm"]
-[ext_resource type="Texture2D" uid="uid://bj2jakced5rnv" path="res://assets/goo/0010.png" id="10_smycf"]
-[ext_resource type="Texture2D" uid="uid://pykiq2wdmtvx" path="res://assets/goo/0011.png" id="11_mquo7"]
-[ext_resource type="Texture2D" uid="uid://crjvvlu3ca8k0" path="res://assets/goo/0012.png" id="12_e6apw"]
+[ext_resource type="SpriteFrames" uid="uid://b5mfegtyk5pb1" path="res://actors/slob/slob_frames.tres" id="2_mfula"]
 [ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="13_10ifj"]
 [ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="14_nvo6f"]
 [ext_resource type="Script" uid="uid://dsqm8jb3i2qou" path="res://components/movement/move_input_path_finding.gd" id="15_3tx8k"]
 [ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="16_1d5tq"]
 [ext_resource type="Script" uid="uid://dung32ibr41lw" path="res://components/hitbox_component.gd" id="16_chxcw"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bit6u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_0abj3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_nvo6f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_sfjoh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_m3pr7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_j1xxo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_xp71c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_wtef8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_8kiil")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_dwgxm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_smycf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_mquo7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_e6apw")
-}],
-"loop": true,
-"name": &"default",
-"speed": 12.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_chxcw"]
 radius = 47.759815
@@ -81,9 +26,9 @@ collision_mask = 5
 script = ExtResource("1_sfjoh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=395704127]
-sprite_frames = SubResource("SpriteFrames_bit6u")
+scale = Vector2(0.64, 0.64)
+sprite_frames = ExtResource("2_mfula")
 autoplay = "default"
-frame_progress = 0.77718663
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1196546586]
 shape = SubResource("CircleShape2D_chxcw")
@@ -98,13 +43,11 @@ moveInputComponent = NodePath("../MoveInputPathFindingComponent")
 script = ExtResource("15_3tx8k")
 moveComponent = NodePath("../MoveComponent")
 moveStats = SubResource("Resource_3tx8k")
-metadata/_custom_type_script = "uid://dsqm8jb3i2qou"
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=689255192]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("14_nvo6f")
-metadata/_custom_type_script = "uid://bplsnnnm84yir"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=51897163]
 shape = SubResource("CircleShape2D_sfjoh")

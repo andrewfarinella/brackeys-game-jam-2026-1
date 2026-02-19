@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://yflrqclje2j8"]
+
+[ext_resource type="Texture2D" uid="uid://8134kbxncxj5" path="res://assets/squareButtons/yellowInactive.png" id="1_ik8ck"]
+[ext_resource type="Texture2D" uid="uid://ngsel0raw6q5" path="res://assets/squareButtons/yellowActive.png" id="2_k7nl0"]
+
+[node name="SquareButtonYellow" type="Node2D" unique_id=1223691789]
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=817186885]
+offset_right = 40.0
+offset_bottom = 40.0
+toggle_mode = true
+texture_normal = ExtResource("1_ik8ck")
+texture_pressed = ExtResource("2_k7nl0")
