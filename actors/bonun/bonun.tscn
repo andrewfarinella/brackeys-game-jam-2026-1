@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://dsqm8jb3i2qou" path="res://components/movement/move_input_path_finding.gd" id="15_jtb2s"]
 [ext_resource type="PackedScene" uid="uid://ma0tsvblieoh" path="res://weapons/base/base.tscn" id="16_2inhk"]
 [ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="16_2psn5"]
+[ext_resource type="PackedScene" uid="uid://degci2dq7u1r3" path="res://projectiles/bone_fragment/bone_fragment.tscn" id="19_5y5kl"]
 [ext_resource type="Script" uid="uid://ctm4utg5yhsxf" path="res://components/drops_component.gd" id="19_pcexe"]
 [ext_resource type="Script" uid="uid://cnh2qn5i60evh" path="res://components/stats_component.gd" id="20_l0kqt"]
 [ext_resource type="Script" uid="uid://c7f802exmchc0" path="res://components/damage_component.gd" id="21_5y5kl"]
@@ -113,6 +114,7 @@ shape = SubResource("CircleShape2D_sfjoh")
 
 [node name="Weapon" parent="." unique_id=1244389419 instance=ExtResource("16_2inhk")]
 target = 1
+bullet = ExtResource("19_5y5kl")
 
 [node name="DropsComponent" type="Node" parent="." unique_id=564494967]
 script = ExtResource("19_pcexe")
@@ -135,3 +137,5 @@ script = ExtResource("22_148f2")
 actor = NodePath("..")
 statsComponent = NodePath("../StatsComponent")
 metadata/_custom_type_script = "uid://betamc0v85hha"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=821889579]

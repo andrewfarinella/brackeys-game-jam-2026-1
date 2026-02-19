@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dfgf4u16du4bf" path="res://actors/obstacle/obstacle.tscn" id="5_i4aiw"]
 [ext_resource type="PackedScene" uid="uid://bexe0hbecujou" path="res://actors/death-trap/death-trap.tscn" id="6_3bkh3"]
 [ext_resource type="PackedScene" uid="uid://cd5g88u1ru6nr" path="res://actors/milbug/milbug.tscn" id="7_kiy5x"]
+[ext_resource type="PackedScene" uid="uid://bgo8l1gfu5l4w" path="res://actors/bonun/bonun.tscn" id="7_mkk8b"]
 
 [node name="GameScreen" type="Node2D" unique_id=1421490685]
 script = ExtResource("1_4hxb2")
@@ -45,3 +46,27 @@ position = Vector2(897, 446)
 
 [node name="DeathTrap" parent="." unique_id=1259638105 instance=ExtResource("6_3bkh3")]
 position = Vector2(2947, 199)
+
+[node name="Bonun" parent="." unique_id=1416032881 instance=ExtResource("7_mkk8b")]
+position = Vector2(1320, 98)
+
+[node name="Bonun2" parent="." unique_id=1385910194 instance=ExtResource("7_mkk8b")]
+position = Vector2(1640, -196)
+
+[node name="Bonun3" parent="." unique_id=182968765 instance=ExtResource("7_mkk8b")]
+position = Vector2(1825, -28)
+
+[node name="Bonun4" parent="." unique_id=1268313590 instance=ExtResource("7_mkk8b")]
+position = Vector2(286, 1580)
+
+[node name="Bonun5" parent="." unique_id=990701889 instance=ExtResource("7_mkk8b")]
+position = Vector2(510, 2303)
+
+[node name="Bonun6" parent="." unique_id=1881527104 instance=ExtResource("7_mkk8b")]
+position = Vector2(999, 2374)
+
+[node name="Bonun7" parent="." unique_id=1803637340 instance=ExtResource("7_mkk8b")]
+position = Vector2(1390, 2015)
+
+[node name="Bonun8" parent="." unique_id=184427930 instance=ExtResource("7_mkk8b")]
+position = Vector2(1972, 2383)

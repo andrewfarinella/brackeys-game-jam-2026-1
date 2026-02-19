@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://degci2dq7u1r3"]
+
+[ext_resource type="Script" uid="uid://pys2i77gfmys" path="res://projectiles/bone_fragment/bone_fragment.gd" id="1_4sbt5"]
+[ext_resource type="SpriteFrames" uid="uid://crx66kbhw1fou" path="res://assets/bones_frags/bone_frags_frames.tres" id="2_4rau3"]
+[ext_resource type="Texture2D" uid="uid://tepeb3ejwbwj" path="res://icon.svg" id="2_knwlf"]
+[ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="3_4dk7r"]
+[ext_resource type="Shape2D" uid="uid://gju4rer5lcmj" path="res://assets/bones_frags/bone_frag_collision_shape.tres" id="4_qsdi3"]
+[ext_resource type="Script" uid="uid://wad5t71dh374" path="res://components/movement/move_input_straight_ahead.gd" id="4_yg4rq"]
+[ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="5_iuj1o"]
+[ext_resource type="Script" uid="uid://dung32ibr41lw" path="res://components/hitbox_component.gd" id="6_lhoor"]
+
+[sub_resource type="Resource" id="Resource_s8i05"]
+script = ExtResource("5_iuj1o")
+speed = 2000
+metadata/_custom_type_script = "uid://dwftx2inc4tqn"
+
+[node name="BoneFragment" type="Area2D" unique_id=1348918752]
+scale = Vector2(0.25, 0.25)
+collision_mask = 5
+script = ExtResource("1_4sbt5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1041864242]
+sprite_frames = ExtResource("2_4rau3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=244518843]
+visible = false
+texture = ExtResource("2_knwlf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=272582863]
+shape = ExtResource("4_qsdi3")
+
+[node name="MoveComponent" type="Node" parent="." unique_id=1344582234 node_paths=PackedStringArray("actor", "moveInputComponent")]
+script = ExtResource("3_4dk7r")
+actor = NodePath("..")
+velocity = Vector2(0, -1500)
+moveInputComponent = NodePath("../MoveInputStraightAheadComponent")
+metadata/_custom_type_script = "uid://0jiyn3ggg7i7"
+
+[node name="MoveInputStraightAheadComponent" type="Node2D" parent="." unique_id=218807341 node_paths=PackedStringArray("moveComponent")]
+script = ExtResource("4_yg4rq")
+moveComponent = NodePath("../MoveComponent")
+moveStats = SubResource("Resource_s8i05")
+metadata/_custom_type_script = "uid://wad5t71dh374"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=979243424]
+scale = Vector2(0.07999992, 1)
+rect = Rect2(-800.0008, -64, 1600.0016, 128)
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=214214456]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+monitorable = false
+script = ExtResource("6_lhoor")
+metadata/_custom_type_script = "uid://dung32ibr41lw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1168234822]
+shape = ExtResource("4_qsdi3")

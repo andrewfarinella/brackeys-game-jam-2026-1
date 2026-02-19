@@ -149,3 +149,5 @@ metadata/_custom_type_script = "uid://ccljuenhwoxre"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportComponent" unique_id=1388889738]
 shape = SubResource("CircleShape2D_fn251")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1868454953]
