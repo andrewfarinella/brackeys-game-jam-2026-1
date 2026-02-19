@@ -79,6 +79,7 @@ metadata/_custom_type_script = "uid://dwftx2inc4tqn"
 radius = 48.270073
 
 [node name="Turnstyle" type="CharacterBody2D" unique_id=1259638105]
+collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_7g0l3")
 
@@ -126,7 +127,7 @@ script = ExtResource("20_pv0vy")
 startingHealth = 3
 metadata/_custom_type_script = "uid://cnh2qn5i60evh"
 
-[node name="DamageComponent" type="Node" parent="." unique_id=210215567 node_paths=PackedStringArray("hurtboxComponent", "statsComponent")]
+[node name="DamageComponent" type="Node" parent="." unique_id=210215567 node_paths=PackedStringArray("hurtboxComponent", "statsComponent") groups=["DamageComponents"]]
 script = ExtResource("21_upwyr")
 hurtboxComponent = NodePath("../HurtboxComponent")
 statsComponent = NodePath("../StatsComponent")

@@ -16,7 +16,7 @@ var targetAngle:float
 func _ready() -> void:
 	weaponInputComponent.weaponFired.connect(fire_weapon)
 	EventHub.subAcknowledged.connect(_on_sub_acknowledged)
-	#damageComponent.damageTaken.connect(push_back)
+	damageComponent.damageTaken.connect(flash.unbind(1))
 	
 func _process(delta: float) -> void:
 	%SubThanks.rotation = -rotation
@@ -45,5 +45,9 @@ func _on_sub_acknowledged(username:String) -> void:
 	await get_tree().create_timer(2).timeout
 	%SubThanks.hide()
 
-#func push_back(hitbox:HitboxComponent) -> void:
-	#get_angle_to(hitbox.global_position)
+func flash() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(%AnimatedSprite2D, "modulate", Color.TRANSPARENT, 0.25)
+	tween.tween_property(%AnimatedSprite2D, "modulate", Color.WHITE, 0.25)
+	tween.tween_property(%AnimatedSprite2D, "modulate", Color.TRANSPARENT, 0.25)
+	tween.tween_property(%AnimatedSprite2D, "modulate", Color.WHITE, 0.25)

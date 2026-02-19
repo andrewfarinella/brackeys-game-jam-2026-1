@@ -30,6 +30,10 @@ window/stretch/mode="canvas_items"
 
 movie_writer/movie_file="/Users/andrewfarinella/Development/@andrewfarinella/brackeys-game-jam-2026.1/renders/render.avi"
 
+[global_group]
+
+DamageComponents=""
+
 [input]
 
 Sprint={

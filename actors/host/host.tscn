@@ -66,6 +66,7 @@ visible = false
 texture = ExtResource("1_tqke7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2033665383]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_i6poo")
 autoplay = "default"
 
@@ -127,7 +128,7 @@ script = ExtResource("12_2t2cy")
 startingHealth = 5
 metadata/_custom_type_script = "uid://cnh2qn5i60evh"
 
-[node name="DamageComponent" type="Node" parent="." unique_id=1423747284 node_paths=PackedStringArray("hurtboxComponent", "statsComponent")]
+[node name="DamageComponent" type="Node" parent="." unique_id=1423747284 node_paths=PackedStringArray("hurtboxComponent", "statsComponent") groups=["DamageComponents"]]
 script = ExtResource("13_gi851")
 hurtboxComponent = NodePath("../HurtboxComponent")
 statsComponent = NodePath("../StatsComponent")

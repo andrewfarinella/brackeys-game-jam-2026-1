@@ -78,6 +78,7 @@ metadata/_custom_type_script = "uid://dwftx2inc4tqn"
 radius = 48.270073
 
 [node name="Bonun" type="CharacterBody2D" unique_id=1259638105]
+collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_qv47h")
 
@@ -123,7 +124,7 @@ metadata/_custom_type_script = "uid://ctm4utg5yhsxf"
 script = ExtResource("20_l0kqt")
 metadata/_custom_type_script = "uid://cnh2qn5i60evh"
 
-[node name="DamageComponent" type="Node" parent="." unique_id=2033414461 node_paths=PackedStringArray("hurtboxComponent", "statsComponent")]
+[node name="DamageComponent" type="Node" parent="." unique_id=2033414461 node_paths=PackedStringArray("hurtboxComponent", "statsComponent") groups=["DamageComponents"]]
 script = ExtResource("21_5y5kl")
 hurtboxComponent = NodePath("../HurtboxComponent")
 statsComponent = NodePath("../StatsComponent")

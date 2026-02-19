@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cd5g88u1ru6nr"]
+
+[ext_resource type="Script" uid="uid://d3hxjqcpsagpq" path="res://actors/milbug/milbug.gd" id="1_q7til"]
+[ext_resource type="SpriteFrames" uid="uid://dnua7ru8c3t0c" path="res://actors/milbug/slob_frames.tres" id="2_f17rb"]
+[ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="3_r268w"]
+[ext_resource type="Script" uid="uid://dsqm8jb3i2qou" path="res://components/movement/move_input_path_finding.gd" id="4_7xea3"]
+[ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="5_oti60"]
+[ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="6_xngus"]
+[ext_resource type="Script" uid="uid://dung32ibr41lw" path="res://components/hitbox_component.gd" id="7_llgma"]
+[ext_resource type="Script" uid="uid://ctm4utg5yhsxf" path="res://components/drops_component.gd" id="8_l7cgq"]
+[ext_resource type="Script" uid="uid://cnh2qn5i60evh" path="res://components/stats_component.gd" id="9_1m4op"]
+[ext_resource type="Script" uid="uid://c7f802exmchc0" path="res://components/damage_component.gd" id="10_cm6fm"]
+[ext_resource type="Script" uid="uid://betamc0v85hha" path="res://components/destroyed_component.gd" id="11_uf4p0"]
+[ext_resource type="Script" uid="uid://ckikdqpahkwio" path="res://components/radiation_component.gd" id="12_ning1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fb1cp"]
+radius = 247.07286
+
+[sub_resource type="Gradient" id="Gradient_ning1"]
+offsets = PackedFloat32Array(0, 0.17774567, 0.65606934)
+colors = PackedColorArray(0.23137255, 0.29411766, 0, 1, 0.23137255, 0.29411766, 0, 0.38431373, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fb1cp"]
+gradient = SubResource("Gradient_ning1")
+fill = 1
+fill_from = Vector2(0.4764957, 0.4871795)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_chxcw"]
+radius = 47.759815
+
+[sub_resource type="Resource" id="Resource_3tx8k"]
+script = ExtResource("5_oti60")
+metadata/_custom_type_script = "uid://dwftx2inc4tqn"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sfjoh"]
+radius = 48.270073
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1246"]
+radius = 36.013885
+
+[node name="Milbug" type="CharacterBody2D" unique_id=1772619836]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_q7til")
+
+[node name="RadiationComponent" type="Area2D" parent="." unique_id=1683350170]
+collision_layer = 0
+script = ExtResource("12_ning1")
+metadata/_custom_type_script = "uid://ckikdqpahkwio"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RadiationComponent" unique_id=1276965308]
+shape = SubResource("CircleShape2D_fb1cp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="RadiationComponent" unique_id=2126195329]
+scale = Vector2(7.65625, 7.5625)
+texture = SubResource("GradientTexture2D_fb1cp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=395704127]
+scale = Vector2(0.64, 0.64)
+sprite_frames = ExtResource("2_f17rb")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1196546586]
+shape = SubResource("CircleShape2D_chxcw")
+
+[node name="MoveComponent" type="Node" parent="." unique_id=885344095 node_paths=PackedStringArray("actor", "moveInputComponent")]
+script = ExtResource("3_r268w")
+actor = NodePath("..")
+velocity = Vector2(0, 230)
+moveInputComponent = NodePath("../MoveInputPathFindingComponent")
+
+[node name="MoveInputPathFindingComponent" type="Node2D" parent="." unique_id=575347089 node_paths=PackedStringArray("moveComponent")]
+script = ExtResource("4_7xea3")
+moveComponent = NodePath("../MoveComponent")
+moveStats = SubResource("Resource_3tx8k")
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=689255192]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("6_xngus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=51897163]
+shape = SubResource("CircleShape2D_sfjoh")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=274012460]
+collision_layer = 0
+script = ExtResource("7_llgma")
+metadata/_custom_type_script = "uid://dung32ibr41lw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1842452808]
+shape = SubResource("CircleShape2D_c1246")
+
+[node name="DropsComponent" type="Node" parent="." unique_id=961523048]
+script = ExtResource("8_l7cgq")
+metadata/_custom_type_script = "uid://ctm4utg5yhsxf"
+
+[node name="StatsComponent" type="Node" parent="." unique_id=1430424088]
+script = ExtResource("9_1m4op")
+metadata/_custom_type_script = "uid://cnh2qn5i60evh"
+
+[node name="DamageComponent" type="Node" parent="." unique_id=1011509843 node_paths=PackedStringArray("hurtboxComponent", "statsComponent") groups=["DamageComponents"]]
+script = ExtResource("10_cm6fm")
+hurtboxComponent = NodePath("../HurtboxComponent")
+statsComponent = NodePath("../StatsComponent")
+metadata/_custom_type_script = "uid://c7f802exmchc0"
+
+[node name="DestroyedComponent" type="Node" parent="." unique_id=1591146093 node_paths=PackedStringArray("actor", "statsComponent")]
+script = ExtResource("11_uf4p0")
+actor = NodePath("..")
+statsComponent = NodePath("../StatsComponent")
+metadata/_custom_type_script = "uid://betamc0v85hha"
