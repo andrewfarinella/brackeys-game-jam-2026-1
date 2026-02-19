@@ -22,7 +22,11 @@ func check_if_body_in_teleport_target() -> void:
 	var shape = shape_owner_get_shape(0, 0) as CircleShape2D
 	var radius = shape.radius
 	var actorPosition = actor.global_position
+	var timer = get_tree().create_timer(0.001)
 	while true:
+		if timer.time_left <= 0:
+			call_deferred("start_teleport_timer")
+			return
 		var angle = randf()
 		var distance = randi_range(radius / 3, radius)
 		
@@ -51,6 +55,7 @@ func check_if_body_in_teleport_target() -> void:
 			actor.global_position = testArea.global_position
 			testArea.queue_free()
 			call_deferred("start_teleport_timer")
+			timer.cancel_free()
 			return
 	
 	

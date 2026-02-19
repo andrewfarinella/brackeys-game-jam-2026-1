@@ -20,4 +20,4 @@ func display_sub_alert(username:String, duration:int) -> void:
 func spawn_enemy(scene:PackedScene, spawnPosition:Vector2) -> void:
 	var enemy = scene.instantiate().duplicate()
 	enemy.global_position = spawnPosition
-	add_child(enemy)
+	call_deferred("add_child", enemy)

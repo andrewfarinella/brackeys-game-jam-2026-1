@@ -12,7 +12,9 @@ func _init(startingViews:int = 0, startingSubs:int = 0, startingSubGoal:int = DE
 	views = startingViews
 	subs = startingSubs
 	subGoal = startingSubGoal
+	EventHub.subAcknowledged.connect(func(_username): update_views(1))
 	EventHub.subAcknowledged.connect(queue_next_sub.unbind(1))
+	EventHub.subIgnored.connect(func(_username): update_views(-1))
 	EventHub.subIgnored.connect(queue_next_sub.unbind(1))
 	EventHub.actorDestroyed.connect(maybe_increase_viewers)
 	
@@ -29,14 +31,17 @@ func queue_next_sub() -> void:
 	if _nextSubQueued: return
 	_nextSubQueued = true
 	await get_tree().create_timer(calculate_time_until_next_sub_alert()).timeout
-	new_sub()
 	_nextSubQueued = false
+	if views == 0:
+		call_deferred("queue_next_sub")
+	else:
+		new_sub()
 
 func maybe_increase_viewers(actor:Node2D) -> void:
 	if actor is HostCharacter: return
 	if actor.dropsComponent == null: return
-	increase_views(actor.dropsComponent.calculate_views_reward())
+	update_views(actor.dropsComponent.calculate_views_reward())
 	
-func increase_views(amount:int) -> void:
+func update_views(amount:int) -> void:
 	views += amount
 	EventHub.newViewers.emit(amount, views)

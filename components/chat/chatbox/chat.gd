@@ -13,17 +13,16 @@ func init_chat_messages() -> void:
 		%ChatMessages.remove_child(child)
 		child.call_deferred("queue_free")
 		
-	for message:ChatMessage in messages:
-		var container := load("uid://d1f6rqws6ggdu").instantiate().duplicate() as ChatMessageBox
-		container.setup(message)
-		%ChatMessages.add_child(container)
-		
 func begin_chat() -> void:
 	add_chat_messages()
 
 func add_chat_messages() -> void:
-	var messageCountBase = max(1, ceili(GameManager.streamManager.views / 1000))
+	var messageCountBase = max(1, ceili(GameManager.streamManager.views / 1000.))
 	var messageCount = randi_range(max(0, messageCountBase - MESSAGE_COUNT_VARIANCE), messageCountBase + MESSAGE_COUNT_VARIANCE)
+	await get_tree().create_timer(randf_range(max(0, 15/messageCountBase - 0.5), 15/messageCountBase + 0.5)).timeout
+	if GameManager.streamManager.views == 0:
+		call_deferred("add_chat_messages")
+		return
 	
 	for i in messageCount:
 		var message = messages.pick_random()
@@ -33,5 +32,4 @@ func add_chat_messages() -> void:
 		
 	await get_tree().process_frame
 	%ScrollContainer.scroll_vertical = int(%ScrollContainer.get_v_scroll_bar().max_value)
-	await get_tree().create_timer(randf_range(max(0, 15/messageCountBase - 0.5), 15/messageCountBase + 0.5)).timeout
-	add_chat_messages()
+	call_deferred("add_chat_messages")
