@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cs147f4fyys0f" path="res://scenes/game_screen/game_screen.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://cm6p0jaums2kp" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b3bvd4lhwcsqd" path="res://components/chat/chatbox/chat.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://d1hm8w4adr3k6" path="res://assets/sprites/viewers.png" id="4_jyhfs"]
 
 [node name="Node2D" type="Node2D" unique_id=1421490685]
 script = ExtResource("1_sugp2")
@@ -59,3 +60,26 @@ bbcode_enabled = true
 text = "[color=purple]saintspaints[/color] subscribed for 8 months!"
 fit_content = true
 autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1631407934]
+offset_left = 2458.0
+offset_top = 2011.0
+offset_right = 2964.0
+offset_bottom = 2084.0
+theme_override_constants/separation = 16
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=841200508]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_jyhfs")
+expand_mode = 3
+
+[node name="ViewCount" type="Label" parent="CanvasLayer/HBoxContainer" unique_id=619217263]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 64
+text = "205 viewers"
+vertical_alignment = 2

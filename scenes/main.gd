@@ -1,20 +1,21 @@
 extends Node2D
+@onready var chatbox: Control = $CanvasLayer/Chatbox
 
-var subCount := 3
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.start_new_stream()
+	update_viewer_count(0, GameManager.streamManager.views)
+	EventHub.newViewers.connect(update_viewer_count)
 	EventHub.subAcknowledged.connect(show_sub_message.unbind(1))
 	EventHub.subIgnored.connect(show_sub_message.unbind(1))
-	show_sub_message()
+	EventHub.newSub.connect(show_sub_message)
+	chatbox.call_deferred("begin_chat")
 	
-func increase_sub_count() -> void:
+func update_viewer_count(_newViewers:int, totalViewers:int) -> void:
+	%ViewCount.text = "%s viewers" % GameUtils.format_number(totalViewers)
+	
+func increase_sub_count(subCount:int, subGoal:int) -> void:
 	subCount += 1
-	%SubCount.text = "Sub Goal: %d/1,000,000" % subCount
+	%SubCount.text = "Sub Goal: %d/%s" % [subCount, GameUtils.format_number(subGoal)]
 	
-func show_sub_message() -> void:
-	await get_tree().create_timer(randf_range(0.2, 3.5)).timeout
-	var username = ["saintspaints", "_f3_reeder", "MomsPaghetti"].pick_random()
-	var subLength = randi_range(1, 100)
-	increase_sub_count()
-	%GameScreen.display_sub_alert(username, subLength)
+func show_sub_message(username:String, duration:int) -> void:
+	%GameScreen.display_sub_alert(username, duration)

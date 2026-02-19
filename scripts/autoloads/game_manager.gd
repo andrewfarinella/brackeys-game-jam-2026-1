@@ -15,9 +15,14 @@ enum CollisionLayer {
 var inputScheme:InputScheme = InputScheme.KBM
 var hostCharacter:HostCharacter
 
+var streamManager:StreamManager
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouse: return
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		inputScheme = InputScheme.Gamepad
 	elif inputScheme != InputScheme.KBM:
 		inputScheme = InputScheme.KBM
+
+func start_new_stream() -> void:
+	streamManager = StreamManager.new()

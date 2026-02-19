@@ -74,6 +74,7 @@ visible = false
 shape = SubResource("RectangleShape2D_gi851")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=343384637]
+position = Vector2(-8, -1)
 shape = SubResource("CapsuleShape2D_5uqw7")
 
 [node name="MoveComponent" type="Node" parent="." unique_id=204262942 node_paths=PackedStringArray("actor", "moveInputComponent")]

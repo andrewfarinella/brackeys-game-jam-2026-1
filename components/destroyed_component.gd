@@ -8,4 +8,5 @@ func _ready() -> void:
 	statsComponent.healthExhausted.connect(destroyed)
 	
 func destroyed() -> void:
+	EventHub.actorDestroyed.emit(actor)
 	actor.queue_free()

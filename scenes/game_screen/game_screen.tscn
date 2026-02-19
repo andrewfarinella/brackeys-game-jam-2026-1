@@ -13,28 +13,28 @@ metadata/_edit_horizontal_guides_ = [2171.0]
 metadata/_edit_vertical_guides_ = [3073.0]
 
 [node name="Host" parent="." unique_id=85555668 instance=ExtResource("1_3uriw")]
-position = Vector2(1984, 1671)
+position = Vector2(1828, 1041)
 
 [node name="Slob" parent="." unique_id=1108700535 instance=ExtResource("2_dv2sx")]
-position = Vector2(1576, 294)
+position = Vector2(1798, 51)
 
 [node name="Slob2" parent="." unique_id=191565511 instance=ExtResource("2_dv2sx")]
-position = Vector2(2252, 350)
+position = Vector2(2474, 107)
 
 [node name="Slob3" parent="." unique_id=984507669 instance=ExtResource("2_dv2sx")]
-position = Vector2(1112, 525)
+position = Vector2(1334, 282)
 
 [node name="Slob4" parent="." unique_id=268140185 instance=ExtResource("2_dv2sx")]
-position = Vector2(424, 340)
+position = Vector2(646, 97)
 
 [node name="Turnstyle" parent="." unique_id=1259638105 instance=ExtResource("4_3bkh3")]
-position = Vector2(1904, 14)
+position = Vector2(2126, -229)
 
 [node name="Bonun" parent="." unique_id=1319699862 instance=ExtResource("4_3o8ta")]
-position = Vector2(1077, 215)
+position = Vector2(1299, -28)
 
 [node name="Bonun2" parent="." unique_id=606174623 instance=ExtResource("4_3o8ta")]
-position = Vector2(1936, 544)
+position = Vector2(2158, 301)
 
 [node name="Projectiles" type="Node" parent="." unique_id=1617358623]
 unique_name_in_owner = true
@@ -52,7 +52,7 @@ layer = 2
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 570.0
-offset_top = 628.0
-offset_right = 570.0
-offset_bottom = 628.0
+offset_left = 792.0
+offset_top = 385.0
+offset_right = 792.0
+offset_bottom = 385.0

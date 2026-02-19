@@ -18,6 +18,10 @@
 [ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="16_x6dli"]
 [ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="17_cy631"]
 [ext_resource type="PackedScene" uid="uid://ma0tsvblieoh" path="res://weapons/base/base.tscn" id="18_wc864"]
+[ext_resource type="Script" uid="uid://ctm4utg5yhsxf" path="res://components/drops_component.gd" id="19_6xyfh"]
+[ext_resource type="Script" uid="uid://cnh2qn5i60evh" path="res://components/stats_component.gd" id="20_pv0vy"]
+[ext_resource type="Script" uid="uid://c7f802exmchc0" path="res://components/damage_component.gd" id="21_upwyr"]
+[ext_resource type="Script" uid="uid://betamc0v85hha" path="res://components/destroyed_component.gd" id="22_gvoba"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bit6u"]
 animations = [{
@@ -110,3 +114,26 @@ shape = SubResource("CircleShape2D_sfjoh")
 [node name="Weapon" parent="." unique_id=1244389419 instance=ExtResource("18_wc864")]
 target = 0
 fireRate = 60
+
+[node name="DropsComponent" type="Node" parent="." unique_id=1264207002]
+script = ExtResource("19_6xyfh")
+viewsRewardBase = 20
+viewsRewardVariance = 4
+metadata/_custom_type_script = "uid://ctm4utg5yhsxf"
+
+[node name="StatsComponent" type="Node" parent="." unique_id=1063564589]
+script = ExtResource("20_pv0vy")
+startingHealth = 3
+metadata/_custom_type_script = "uid://cnh2qn5i60evh"
+
+[node name="DamageComponent" type="Node" parent="." unique_id=210215567 node_paths=PackedStringArray("hurtboxComponent", "statsComponent")]
+script = ExtResource("21_upwyr")
+hurtboxComponent = NodePath("../HurtboxComponent")
+statsComponent = NodePath("../StatsComponent")
+metadata/_custom_type_script = "uid://c7f802exmchc0"
+
+[node name="DestroyedComponent" type="Node" parent="." unique_id=123469360 node_paths=PackedStringArray("actor", "statsComponent")]
+script = ExtResource("22_gvoba")
+actor = NodePath("..")
+statsComponent = NodePath("../StatsComponent")
+metadata/_custom_type_script = "uid://betamc0v85hha"

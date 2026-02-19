@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://dg5g4p3gcq824"]
 
 [ext_resource type="Script" uid="uid://b0bim7arex81p" path="res://actors/slob/slob.gd" id="1_sfjoh"]
-[ext_resource type="SpriteFrames" uid="uid://b5mfegtyk5pb1" path="res://actors/slob/slob_frames.tres" id="2_mfula"]
+[ext_resource type="SpriteFrames" path="res://actors/slob/slob_frames.tres" id="2_mfula"]
+[ext_resource type="Script" uid="uid://ctm4utg5yhsxf" path="res://components/drops_component.gd" id="8_80ih6"]
+[ext_resource type="Script" uid="uid://cnh2qn5i60evh" path="res://components/stats_component.gd" id="9_2bnwb"]
+[ext_resource type="Script" uid="uid://c7f802exmchc0" path="res://components/damage_component.gd" id="10_lrvkj"]
+[ext_resource type="Script" uid="uid://betamc0v85hha" path="res://components/destroyed_component.gd" id="11_62tae"]
 [ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="13_10ifj"]
 [ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="14_nvo6f"]
 [ext_resource type="Script" uid="uid://dsqm8jb3i2qou" path="res://components/movement/move_input_path_finding.gd" id="15_3tx8k"]
@@ -21,7 +25,7 @@ radius = 48.270073
 [sub_resource type="CircleShape2D" id="CircleShape2D_c1246"]
 radius = 36.013885
 
-[node name="Goo" type="CharacterBody2D" unique_id=1772619836]
+[node name="Slob" type="CharacterBody2D" unique_id=1772619836]
 collision_mask = 5
 script = ExtResource("1_sfjoh")
 
@@ -59,3 +63,23 @@ metadata/_custom_type_script = "uid://dung32ibr41lw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1842452808]
 shape = SubResource("CircleShape2D_c1246")
+
+[node name="DropsComponent" type="Node" parent="." unique_id=961523048]
+script = ExtResource("8_80ih6")
+metadata/_custom_type_script = "uid://ctm4utg5yhsxf"
+
+[node name="StatsComponent" type="Node" parent="." unique_id=1430424088]
+script = ExtResource("9_2bnwb")
+metadata/_custom_type_script = "uid://cnh2qn5i60evh"
+
+[node name="DamageComponent" type="Node" parent="." unique_id=1011509843 node_paths=PackedStringArray("hurtboxComponent", "statsComponent")]
+script = ExtResource("10_lrvkj")
+hurtboxComponent = NodePath("../HurtboxComponent")
+statsComponent = NodePath("../StatsComponent")
+metadata/_custom_type_script = "uid://c7f802exmchc0"
+
+[node name="DestroyedComponent" type="Node" parent="." unique_id=1591146093 node_paths=PackedStringArray("actor", "statsComponent")]
+script = ExtResource("11_62tae")
+actor = NodePath("..")
+statsComponent = NodePath("../StatsComponent")
+metadata/_custom_type_script = "uid://betamc0v85hha"

@@ -1,7 +1,9 @@
+class_name Bonun
 extends Node2D
 @onready var hurtboxComponent: HurtboxComponent = $HurtboxComponent as HurtboxComponent
 @onready var weapon:Weapon = $Weapon as Weapon
 @onready var moveComponent: MoveComponent = $MoveComponent
+@onready var dropsComponent: DropsComponent = $DropsComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

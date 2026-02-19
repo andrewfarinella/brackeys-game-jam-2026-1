@@ -40,7 +40,6 @@ func fire_weapon() -> void:
 	weapon.fire_at_angle(rotation_degrees)
 
 func _on_sub_acknowledged(username:String) -> void:
-	print_debug('in on sub ack')
 	%SubThanks.text = "Thanks for the sub, %s!" % username
 	%SubThanks.show()
 	await get_tree().create_timer(2).timeout
