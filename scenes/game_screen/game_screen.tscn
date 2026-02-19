@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bexe0hbecujou" path="res://actors/death-trap/death-trap.tscn" id="6_3bkh3"]
 [ext_resource type="PackedScene" uid="uid://cd5g88u1ru6nr" path="res://actors/milbug/milbug.tscn" id="7_kiy5x"]
 [ext_resource type="PackedScene" uid="uid://bgo8l1gfu5l4w" path="res://actors/bonun/bonun.tscn" id="7_mkk8b"]
+[ext_resource type="PackedScene" uid="uid://88codax7twsl" path="res://actors/turnstyle/turnstyle.tscn" id="8_mkk8b"]
 
 [node name="GameScreen" type="Node2D" unique_id=1421490685]
 script = ExtResource("1_4hxb2")
@@ -70,3 +71,6 @@ position = Vector2(1390, 2015)
 
 [node name="Bonun8" parent="." unique_id=184427930 instance=ExtResource("7_mkk8b")]
 position = Vector2(1972, 2383)
+
+[node name="Turnstyle" parent="." unique_id=470407086 instance=ExtResource("8_mkk8b")]
+position = Vector2(4046, 1850)

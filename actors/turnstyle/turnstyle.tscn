@@ -1,71 +1,18 @@
 [gd_scene format=3 uid="uid://88codax7twsl"]
 
 [ext_resource type="Script" uid="uid://bq1b1g1uuhghm" path="res://actors/turnstyle/turnstyle.gd" id="1_7g0l3"]
-[ext_resource type="Texture2D" uid="uid://bwid5088rkysb" path="res://assets/goo/0001.png" id="2_tmbrf"]
-[ext_resource type="Texture2D" uid="uid://bhhf8f1i6bjp1" path="res://assets/goo/0002.png" id="3_tgmyo"]
-[ext_resource type="Texture2D" uid="uid://bddhxft7i1nk7" path="res://assets/goo/0003.png" id="4_odro0"]
-[ext_resource type="Texture2D" uid="uid://borsluy5s3ux7" path="res://assets/goo/0004.png" id="5_bo0iq"]
-[ext_resource type="Texture2D" uid="uid://que7b8lgunli" path="res://assets/goo/0005.png" id="6_ntmu4"]
-[ext_resource type="Texture2D" uid="uid://b77g7bn26up36" path="res://assets/goo/0006.png" id="7_o2nry"]
-[ext_resource type="Texture2D" uid="uid://c6ocfwal5063i" path="res://assets/goo/0007.png" id="8_pq3uc"]
-[ext_resource type="Texture2D" uid="uid://b0oxfylicph8s" path="res://assets/goo/0008.png" id="9_vxxl4"]
-[ext_resource type="Texture2D" uid="uid://cgvfuwvyo614j" path="res://assets/goo/0009.png" id="10_u6t56"]
-[ext_resource type="Texture2D" uid="uid://bj2jakced5rnv" path="res://assets/goo/0010.png" id="11_8ldro"]
-[ext_resource type="Texture2D" uid="uid://pykiq2wdmtvx" path="res://assets/goo/0011.png" id="12_17qug"]
-[ext_resource type="Texture2D" uid="uid://crjvvlu3ca8k0" path="res://assets/goo/0012.png" id="13_hq0gk"]
+[ext_resource type="SpriteFrames" uid="uid://c83uslypas4cs" path="res://assets/turnstyle/frames.tres" id="2_dmp0m"]
+[ext_resource type="PackedScene" uid="uid://b7cjxxwa015p1" path="res://assets/turnstyle/collision_polygon.tscn" id="7_1rhfx"]
+[ext_resource type="PackedScene" uid="uid://degci2dq7u1r3" path="res://projectiles/bone_fragment/bone_fragment.tscn" id="9_kiyl4"]
 [ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="14_78xw0"]
 [ext_resource type="Script" uid="uid://wad5t71dh374" path="res://components/movement/move_input_straight_ahead.gd" id="15_fplnr"]
 [ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="16_x6dli"]
 [ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="17_cy631"]
 [ext_resource type="PackedScene" uid="uid://ma0tsvblieoh" path="res://weapons/base/base.tscn" id="18_wc864"]
-[ext_resource type="Script" uid="uid://ctm4utg5yhsxf" path="res://components/drops_component.gd" id="19_6xyfh"]
+[ext_resource type="Script" path="res://components/drops_component.gd" id="19_6xyfh"]
 [ext_resource type="Script" uid="uid://cnh2qn5i60evh" path="res://components/stats_component.gd" id="20_pv0vy"]
 [ext_resource type="Script" uid="uid://c7f802exmchc0" path="res://components/damage_component.gd" id="21_upwyr"]
 [ext_resource type="Script" uid="uid://betamc0v85hha" path="res://components/destroyed_component.gd" id="22_gvoba"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bit6u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_tmbrf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_tgmyo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_odro0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_bo0iq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ntmu4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_o2nry")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_pq3uc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_vxxl4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_u6t56")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_8ldro")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_17qug")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_hq0gk")
-}],
-"loop": true,
-"name": &"default",
-"speed": 12.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2inhk"]
 radius = 47.853943
@@ -84,11 +31,15 @@ collision_mask = 5
 script = ExtResource("1_7g0l3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=395704127]
-sprite_frames = SubResource("SpriteFrames_bit6u")
+z_index = 1
+sprite_frames = ExtResource("2_dmp0m")
 autoplay = "default"
-frame_progress = 0.77718663
+frame_progress = 0.64125687
+
+[node name="CollisionPolygon2D" parent="." unique_id=384759013 instance=ExtResource("7_1rhfx")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2002898332]
+visible = false
 shape = SubResource("CircleShape2D_2inhk")
 
 [node name="MoveComponent" type="Node" parent="." unique_id=885344095 node_paths=PackedStringArray("actor", "moveInputComponent")]
@@ -110,17 +61,20 @@ script = ExtResource("17_cy631")
 metadata/_custom_type_script = "uid://bplsnnnm84yir"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=51897163]
+visible = false
 shape = SubResource("CircleShape2D_sfjoh")
+
+[node name="CollisionPolygon2D" parent="HurtboxComponent" unique_id=819282391 instance=ExtResource("7_1rhfx")]
 
 [node name="Weapon" parent="." unique_id=1244389419 instance=ExtResource("18_wc864")]
 target = 0
 fireRate = 60
+bullet = ExtResource("9_kiyl4")
 
 [node name="DropsComponent" type="Node" parent="." unique_id=1264207002]
 script = ExtResource("19_6xyfh")
 viewsRewardBase = 20
 viewsRewardVariance = 4
-metadata/_custom_type_script = "uid://ctm4utg5yhsxf"
 
 [node name="StatsComponent" type="Node" parent="." unique_id=1063564589]
 script = ExtResource("20_pv0vy")

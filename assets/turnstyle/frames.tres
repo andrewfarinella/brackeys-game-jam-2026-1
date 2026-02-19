@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c83uslypas4cs"]
+
+[ext_resource type="Texture2D" uid="uid://cq6wr617c553f" path="res://assets/turnstyle/turnstyle2.png" id="1_j0xxv"]
+[ext_resource type="Texture2D" uid="uid://bgpwn6xl3sf7f" path="res://assets/turnstyle/turnstyle3.png" id="2_7qj0o"]
+[ext_resource type="Texture2D" uid="uid://bib3yovvrlml1" path="res://assets/turnstyle/turnstyle4.png" id="3_ntm4m"]
+[ext_resource type="Texture2D" uid="uid://bawsmxaj8jynm" path="res://assets/turnstyle/turnstyle5.png" id="4_21mnj"]
+[ext_resource type="Texture2D" uid="uid://b0d6r3k8wjnqo" path="res://assets/turnstyle/turnstyle.png" id="5_y3h4d"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j0xxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7qj0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ntm4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_21mnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y3h4d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

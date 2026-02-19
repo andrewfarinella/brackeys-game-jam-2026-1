@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://4repkhch3xdd"]
+
+[ext_resource type="Texture2D" uid="uid://c81nsccughsn5" path="res://assets/bonun/bonun1.png" id="1_tfxot"]
+[ext_resource type="Texture2D" uid="uid://b2qtnphn66qfk" path="res://assets/bonun/bonun2.png" id="2_xf5eq"]
+[ext_resource type="Texture2D" uid="uid://bem2mf22byu2v" path="res://assets/bonun/bonun3.png" id="3_1uyxl"]
+[ext_resource type="Texture2D" uid="uid://0bfg8hc1jedx" path="res://assets/bonun/bonun4.png" id="4_60s6c"]
+[ext_resource type="Texture2D" uid="uid://dxx1pm8kb87qx" path="res://assets/bonun/bonun5.png" id="5_avkjt"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tfxot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xf5eq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1uyxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_60s6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_avkjt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
