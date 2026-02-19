@@ -1,6 +1,8 @@
 extends Node
 
 #region COMBAT
+signal spawnEnemyAtPosition(scene:PackedScene, position:Vector2)
+
 signal weaponFired(bullet:Bullet)
 signal actorDestroyed(actor:Node2D)
 #endregion

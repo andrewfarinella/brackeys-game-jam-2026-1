@@ -93,10 +93,12 @@ shape = SubResource("CircleShape2D_c1246")
 
 [node name="DropsComponent" type="Node" parent="." unique_id=961523048]
 script = ExtResource("8_l7cgq")
+viewsRewardBase = 16
 metadata/_custom_type_script = "uid://ctm4utg5yhsxf"
 
 [node name="StatsComponent" type="Node" parent="." unique_id=1430424088]
 script = ExtResource("9_1m4op")
+startingHealth = 2
 metadata/_custom_type_script = "uid://cnh2qn5i60evh"
 
 [node name="DamageComponent" type="Node" parent="." unique_id=1011509843 node_paths=PackedStringArray("hurtboxComponent", "statsComponent") groups=["DamageComponents"]]

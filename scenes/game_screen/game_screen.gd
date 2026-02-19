@@ -7,6 +7,7 @@ var subAlert = preload("uid://xvx2qtalrh0w")
 func _ready() -> void:
 	GameManager.hostCharacter = $Host
 	EventHub.weaponFired.connect(_on_weapon_fired)
+	EventHub.spawnEnemyAtPosition.connect(spawn_enemy)
 	
 func _on_weapon_fired(bullet:Bullet) -> void:
 	%Projectiles.add_child(bullet)
@@ -16,3 +17,7 @@ func display_sub_alert(username:String, duration:int) -> void:
 	newAlert.setup(username, duration, self, %SubAlertMarker.position)
 	newAlert.display_alert()
 	
+func spawn_enemy(scene:PackedScene, spawnPosition:Vector2) -> void:
+	var enemy = scene.instantiate().duplicate()
+	enemy.global_position = spawnPosition
+	add_child(enemy)
