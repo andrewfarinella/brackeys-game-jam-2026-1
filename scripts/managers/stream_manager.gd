@@ -12,8 +12,8 @@ func _init(startingViews:int = 0, startingSubs:int = 0, startingSubGoal:int = DE
 	views = startingViews
 	subs = startingSubs
 	subGoal = startingSubGoal
-	EventHub.subAcknowledged.connect(queue_next_sub)
-	EventHub.subIgnored.connect(queue_next_sub)
+	EventHub.subAcknowledged.connect(queue_next_sub.unbind(1))
+	EventHub.subIgnored.connect(queue_next_sub.unbind(1))
 	EventHub.actorDestroyed.connect(maybe_increase_viewers)
 	
 func new_sub() -> void:
