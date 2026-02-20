@@ -144,7 +144,8 @@ metadata/_custom_type_script = "uid://betamc0v85hha"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1868454953]
 
-[node name="LeapComponent" type="Node" parent="." unique_id=784252534 node_paths=PackedStringArray("moveInputComponent")]
+[node name="LeapComponent" type="Node" parent="." unique_id=784252534 node_paths=PackedStringArray("actor", "moveInputComponent")]
 script = ExtResource("24_ong8h")
+actor = NodePath("..")
 moveInputComponent = NodePath("../MoveInputPathFindingComponent")
 metadata/_custom_type_script = "uid://ckxevgr71qh2y"

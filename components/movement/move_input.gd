@@ -4,16 +4,16 @@ extends Node2D
 
 @export var moveComponent: MoveComponent
 @export var moveStats: MovementStats
-#
-#var isSprinting := false
-#
-#func _input(_event: InputEvent) -> void:
-	#var xAxis = Input.get_axis("Left", "Right")
-	#var yAxis = Input.get_axis("Up", "Down")
-	#
-	#isSprinting = Input.is_action_pressed("Sprint")
-	#var speed = moveStats.sprintSpeed if isSprinting else moveStats.speed
-	#moveComponent.velocity = Vector2(xAxis * speed, yAxis * speed)
+var overrideDirection:Vector2
+var useOverrideDirection:bool = false
 
+func use_override_direction(enable:bool) -> void:
+	useOverrideDirection = enable
+	
 @abstract
-func get_direction() -> Vector2
+func get_calculated_direction() -> Vector2
+
+func get_direction() -> Vector2:
+	if useOverrideDirection:
+		return overrideDirection
+	return get_calculated_direction()

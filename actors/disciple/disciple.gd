@@ -9,7 +9,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hurtboxComponent.hurt.connect(queue_free.unbind(1))
-	fire_weapon()
+	#fire_weapon()
 
 func fire_weapon() -> void:
 	await get_tree().create_timer(weapon.fireRateInSeconds).timeout

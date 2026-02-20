@@ -11,5 +11,5 @@ extends MoveInputComponent
 	#var speed = moveStats.sprintSpeed if isSprinting else moveStats.speed
 	#moveComponent.velocity = Vector2(xAxis * speed, yAxis * speed)
 
-func get_direction() -> Vector2:
+func get_calculated_direction() -> Vector2:
 	return Input.get_vector("Left", "Right", "Up", "Down")

@@ -1,10 +1,11 @@
 class_name LeapComponent
 extends Node
 
+@export var actor:Node2D
 @export var moveInputComponent:MoveInputComponent
 @export var leapDelay:int = 4
-@export var leapDuration:int = 2
-@export var speedMultiplier:int = 3
+@export var leapDuration:float = .5
+@export var speedMultiplier:int = 4
 
 func _ready() -> void:
 	start_leap_timer()
