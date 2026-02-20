@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cd5g88u1ru6nr"]
 
 [ext_resource type="Script" uid="uid://d3hxjqcpsagpq" path="res://actors/milbug/milbug.gd" id="1_q7til"]
-[ext_resource type="SpriteFrames" uid="uid://dnua7ru8c3t0c" path="res://actors/milbug/slob_frames.tres" id="2_f17rb"]
+[ext_resource type="SpriteFrames" uid="uid://bkh22vjngtipk" path="res://assets/millbug/frames.tres" id="3_ning1"]
 [ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="3_r268w"]
 [ext_resource type="Script" uid="uid://dsqm8jb3i2qou" path="res://components/movement/move_input_path_finding.gd" id="4_7xea3"]
 [ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="5_oti60"]
 [ext_resource type="Script" uid="uid://bplsnnnm84yir" path="res://components/hurtbox_component.gd" id="6_xngus"]
 [ext_resource type="Script" uid="uid://dung32ibr41lw" path="res://components/hitbox_component.gd" id="7_llgma"]
-[ext_resource type="Script" uid="uid://ctm4utg5yhsxf" path="res://components/drops_component.gd" id="8_l7cgq"]
+[ext_resource type="Script" path="res://components/drops_component.gd" id="8_l7cgq"]
 [ext_resource type="Script" uid="uid://cnh2qn5i60evh" path="res://components/stats_component.gd" id="9_1m4op"]
 [ext_resource type="Script" uid="uid://c7f802exmchc0" path="res://components/damage_component.gd" id="10_cm6fm"]
 [ext_resource type="Script" uid="uid://betamc0v85hha" path="res://components/destroyed_component.gd" id="11_uf4p0"]
@@ -26,11 +26,13 @@ fill = 1
 fill_from = Vector2(0.4764957, 0.4871795)
 fill_to = Vector2(1, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_chxcw"]
-radius = 47.759815
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_magt5"]
+radius = 28.62
+height = 150.33
 
 [sub_resource type="Resource" id="Resource_3tx8k"]
 script = ExtResource("5_oti60")
+speed = 400
 metadata/_custom_type_script = "uid://dwftx2inc4tqn"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sfjoh"]
@@ -57,17 +59,20 @@ scale = Vector2(7.65625, 7.5625)
 texture = SubResource("GradientTexture2D_fb1cp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=395704127]
+rotation = 1.5707964
 scale = Vector2(0.64, 0.64)
-sprite_frames = ExtResource("2_f17rb")
+sprite_frames = ExtResource("3_ning1")
 autoplay = "default"
+frame_progress = 0.8872296
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1196546586]
-shape = SubResource("CircleShape2D_chxcw")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_magt5")
 
 [node name="MoveComponent" type="Node" parent="." unique_id=885344095 node_paths=PackedStringArray("actor", "moveInputComponent")]
 script = ExtResource("3_r268w")
 actor = NodePath("..")
-velocity = Vector2(0, 230)
+velocity = Vector2(0, 330)
 moveInputComponent = NodePath("../MoveInputPathFindingComponent")
 
 [node name="MoveInputPathFindingComponent" type="Node2D" parent="." unique_id=575347089 node_paths=PackedStringArray("moveComponent")]
@@ -80,7 +85,12 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("6_xngus")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent" unique_id=362937325]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_magt5")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=51897163]
+visible = false
 shape = SubResource("CircleShape2D_sfjoh")
 
 [node name="HitboxComponent" type="Area2D" parent="." unique_id=274012460]
@@ -89,12 +99,16 @@ script = ExtResource("7_llgma")
 metadata/_custom_type_script = "uid://dung32ibr41lw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1842452808]
+visible = false
 shape = SubResource("CircleShape2D_c1246")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxComponent" unique_id=84894047]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_magt5")
 
 [node name="DropsComponent" type="Node" parent="." unique_id=961523048]
 script = ExtResource("8_l7cgq")
 viewsRewardBase = 16
-metadata/_custom_type_script = "uid://ctm4utg5yhsxf"
 
 [node name="StatsComponent" type="Node" parent="." unique_id=1430424088]
 script = ExtResource("9_1m4op")

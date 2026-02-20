@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cbubal4kp17p1"]
+
+[ext_resource type="Texture2D" uid="uid://ctac7ip5u1v8h" path="res://assets/death_trap/deathTrap1.png" id="1_mcth2"]
+[ext_resource type="Texture2D" uid="uid://m6l17dnyke1v" path="res://assets/death_trap/deathTrap2.png" id="2_ms5mh"]
+[ext_resource type="Texture2D" uid="uid://fbom2tmv63mr" path="res://assets/death_trap/deathTrap3.png" id="3_go10y"]
+[ext_resource type="Texture2D" uid="uid://c8k4c5cuepnnn" path="res://assets/death_trap/deathTrap4.png" id="4_op5ge"]
+[ext_resource type="Texture2D" uid="uid://c4crxds0gwwdm" path="res://assets/death_trap/deathTrap5.png" id="5_4v3dw"]
+[ext_resource type="Texture2D" uid="uid://dwkbxrb6g3gkc" path="res://assets/death_trap/deathTrap6.png" id="6_qwu24"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_mcth2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ms5mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_go10y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_op5ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4v3dw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qwu24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_op5ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ms5mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_mcth2")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
