@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dskaqxqdxi335"]
+
+[ext_resource type="Script" uid="uid://cvsdyh36ahjjy" path="res://projectiles/homing/homing.gd" id="1_2l6w0"]
+[ext_resource type="Texture2D" uid="uid://tepeb3ejwbwj" path="res://icon.svg" id="2_ubfuj"]
+[ext_resource type="Script" uid="uid://0jiyn3ggg7i7" path="res://components/movement/move.gd" id="3_ltxrm"]
+[ext_resource type="Script" uid="uid://dsqm8jb3i2qou" path="res://components/movement/move_input_path_finding.gd" id="4_0la5y"]
+[ext_resource type="Script" uid="uid://dwftx2inc4tqn" path="res://components/movement/stats.gd" id="5_ellox"]
+[ext_resource type="Script" uid="uid://dung32ibr41lw" path="res://components/hitbox_component.gd" id="6_0ka54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sils6"]
+size = Vector2(128, 128)
+
+[sub_resource type="Resource" id="Resource_fxwse"]
+script = ExtResource("5_ellox")
+speed = 950
+metadata/_custom_type_script = "uid://dwftx2inc4tqn"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pofd3"]
+size = Vector2(128, 128)
+
+[node name="Bullet" type="Area2D" unique_id=1348918752]
+scale = Vector2(0.25, 0.25)
+collision_mask = 5
+script = ExtResource("1_2l6w0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=244518843]
+texture = ExtResource("2_ubfuj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=272582863]
+shape = SubResource("RectangleShape2D_sils6")
+
+[node name="MoveComponent" type="Node" parent="." unique_id=1344582234 node_paths=PackedStringArray("actor", "moveInputComponent")]
+script = ExtResource("3_ltxrm")
+actor = NodePath("..")
+velocity = Vector2(0, -1500)
+moveInputComponent = NodePath("../MoveInputPathFindingComponent")
+metadata/_custom_type_script = "uid://0jiyn3ggg7i7"
+
+[node name="MoveInputPathFindingComponent" type="Node2D" parent="." unique_id=1164379425 node_paths=PackedStringArray("moveComponent")]
+script = ExtResource("4_0la5y")
+moveComponent = NodePath("../MoveComponent")
+moveStats = SubResource("Resource_fxwse")
+metadata/_custom_type_script = "uid://dsqm8jb3i2qou"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=979243424]
+scale = Vector2(0.07999992, 1)
+rect = Rect2(-800.0008, -64, 1600.0016, 128)
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=214214456]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+monitorable = false
+script = ExtResource("6_0ka54")
+metadata/_custom_type_script = "uid://dung32ibr41lw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1168234822]
+shape = SubResource("RectangleShape2D_pofd3")
+
+[node name="Timer" type="Timer" parent="." unique_id=963292708]
+unique_name_in_owner = true
