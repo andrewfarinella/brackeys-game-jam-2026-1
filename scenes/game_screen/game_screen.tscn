@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bdj6m6me0njt2" path="res://actors/cultist/cultist.tscn" id="4_3o8ta"]
 [ext_resource type="PackedScene" uid="uid://c8hs0fxlwov8f" path="res://actors/disciple/disciple.tscn" id="5_3bkh3"]
 [ext_resource type="PackedScene" uid="uid://dfgf4u16du4bf" path="res://actors/obstacle/obstacle.tscn" id="5_i4aiw"]
+[ext_resource type="PackedScene" uid="uid://bexe0hbecujou" path="res://actors/death-trap/death-trap.tscn" id="6_kiy5x"]
+[ext_resource type="PackedScene" uid="uid://cd5g88u1ru6nr" path="res://actors/milbug/milbug.tscn" id="7_mkk8b"]
+[ext_resource type="PackedScene" uid="uid://dee3kssuxj2px" path="res://actors/dogdog/dogdog.tscn" id="8_mkk8b"]
 
 [node name="GameScreen" type="Node2D" unique_id=1421490685]
 script = ExtResource("1_4hxb2")
@@ -41,3 +44,12 @@ position = Vector2(1365, 590)
 
 [node name="Disciple" parent="." unique_id=1259638105 instance=ExtResource("5_3bkh3")]
 position = Vector2(2373, 264)
+
+[node name="DeathTrap" parent="." unique_id=1211120648 instance=ExtResource("6_kiy5x")]
+position = Vector2(1739, 380)
+
+[node name="Milbug" parent="." unique_id=1942932046 instance=ExtResource("7_mkk8b")]
+position = Vector2(929, 1756)
+
+[node name="DogDog" parent="." unique_id=1250016944 instance=ExtResource("8_mkk8b")]
+position = Vector2(1961, 622)

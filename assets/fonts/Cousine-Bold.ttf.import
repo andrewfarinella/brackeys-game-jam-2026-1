@@ -3,11 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bocclpsugriyj"
-valid=false
+path="res://.godot/imported/Cousine-Bold.ttf-6092c72e2138f53e5cffc20fe10c354d.fontdata"
 
 [deps]
 
 source_file="res://assets/fonts/Cousine-Bold.ttf"
+dest_files=["res://.godot/imported/Cousine-Bold.ttf-6092c72e2138f53e5cffc20fe10c354d.fontdata"]
 
 [params]
 

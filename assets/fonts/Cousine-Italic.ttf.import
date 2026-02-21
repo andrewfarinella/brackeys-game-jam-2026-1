@@ -3,11 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cqnluldhnc215"
-valid=false
+path="res://.godot/imported/Cousine-Italic.ttf-d7a13984adad5765417547cdb7f0aa25.fontdata"
 
 [deps]
 
 source_file="res://assets/fonts/Cousine-Italic.ttf"
+dest_files=["res://.godot/imported/Cousine-Italic.ttf-d7a13984adad5765417547cdb7f0aa25.fontdata"]
 
 [params]
 

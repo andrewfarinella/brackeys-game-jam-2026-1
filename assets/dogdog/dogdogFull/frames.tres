@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://crudytga5nej0"]
+
+[ext_resource type="Texture2D" uid="uid://dc28xdop1a03l" path="res://assets/dogdog/dogdogFull/dogdog1.png" id="1_ix6d5"]
+[ext_resource type="Texture2D" uid="uid://caqxe674wvvua" path="res://assets/dogdog/dogdogFull/dogdog4.png" id="3_obvaa"]
+[ext_resource type="Texture2D" uid="uid://cqa0qqqhhtq52" path="res://assets/dogdog/dogdogFull/dogdog3.png" id="4_64et3"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ix6d5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_64et3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ix6d5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_obvaa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]

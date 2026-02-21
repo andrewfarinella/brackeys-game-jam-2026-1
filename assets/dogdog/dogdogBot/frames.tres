@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cctq7fsjddqut"]
+
+[ext_resource type="Texture2D" uid="uid://dcexo1m2cti7x" path="res://assets/dogdog/dogdogBot/dogdogBotLneut.png" id="1_3nsok"]
+[ext_resource type="Texture2D" uid="uid://bwguiv8e4chkd" path="res://assets/dogdog/dogdogBot/dogdogBotLstart.png" id="2_3av8f"]
+[ext_resource type="Texture2D" uid="uid://bg3wdhiqrc50y" path="res://assets/dogdog/dogdogBot/dogdogBotLstep.png" id="3_5ek4r"]
+[ext_resource type="Texture2D" uid="uid://dou6ytw3fsvch" path="res://assets/dogdog/dogdogBot/dogdogBotRneut.png" id="4_qtbuq"]
+[ext_resource type="Texture2D" uid="uid://doh3p3feqr3l8" path="res://assets/dogdog/dogdogBot/dogdogBotRstart.png" id="5_mtll0"]
+[ext_resource type="Texture2D" uid="uid://bahuayp5bra0e" path="res://assets/dogdog/dogdogBot/dogdogBotRstep.png" id="6_dyujq"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3nsok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3av8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5ek4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qtbuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mtll0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dyujq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
