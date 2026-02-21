@@ -17,5 +17,8 @@ func start_leap_timer() -> void:
 	
 func leap() -> void:
 	moveInputComponent.moveStats.speed = moveInputComponent.moveStats.speed * speedMultiplier
+	moveInputComponent.overrideDirection = moveInputComponent.get_calculated_direction()
+	moveInputComponent.use_override_direction(true)
 	await get_tree().create_timer(leapDuration).timeout
 	moveInputComponent.moveStats.speed = moveInputComponent.moveStats.speed / speedMultiplier
+	moveInputComponent.use_override_direction(false)
