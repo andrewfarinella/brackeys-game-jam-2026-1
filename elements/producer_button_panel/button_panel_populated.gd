@@ -2,7 +2,7 @@ extends Node2D
 
 @export var prepare_button: TextureButton
 #@export var moderate_button: TextureButton
-#@export var go_live_button: TextureButton
+@export var go_live_button: TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

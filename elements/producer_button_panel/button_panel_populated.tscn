@@ -23,9 +23,10 @@ font = ExtResource("6_tbtrs")
 font_size = 80
 font_color = Color(0.6509804, 0.6509804, 0.6509804, 1)
 
-[node name="ButtonPanel" type="Node2D" unique_id=131211255 node_paths=PackedStringArray("prepare_button")]
+[node name="ButtonPanel" type="Node2D" unique_id=131211255 node_paths=PackedStringArray("prepare_button", "go_live_button")]
 script = ExtResource("1_tbtrs")
 prepare_button = NodePath("PrepareLabelContainer/SquareButtonGreen")
+go_live_button = NodePath("GoLiveLabelContainer/LiveButton")
 
 [node name="ProducerButtonPanel" parent="." unique_id=1213121096 instance=ExtResource("1_vpj2t")]
 scale = Vector2(3.68, 3.68)
@@ -87,4 +88,7 @@ text = "GO LIVE"
 label_settings = SubResource("LabelSettings_tbtrs")
 
 [node name="LiveButton" parent="GoLiveLabelContainer" unique_id=753787253 instance=ExtResource("4_lf4a1")]
-position = Vector2(-263, 87)
+offset_left = -263.0
+offset_top = 87.0
+offset_right = 249.0
+offset_bottom = 375.0

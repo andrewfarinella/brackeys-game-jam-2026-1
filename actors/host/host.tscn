@@ -54,8 +54,8 @@ sprintSpeed = 1500
 metadata/_custom_type_script = "uid://dwftx2inc4tqn"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2xfyf"]
-radius = 35.0
-height = 128.0
+radius = 70.0
+height = 168.0
 
 [node name="Host" type="CharacterBody2D" unique_id=1093976220]
 collision_mask = 5
@@ -84,6 +84,7 @@ shape = SubResource("CapsuleShape2D_5uqw7")
 script = ExtResource("2_xq45j")
 actor = NodePath("..")
 ignoreRotation = true
+rotateOnMove = false
 moveInputComponent = NodePath("../MoveInputPlayerComponent")
 metadata/_custom_type_script = "uid://0jiyn3ggg7i7"
 

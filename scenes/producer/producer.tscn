@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://du1tlw5se4q5b"]
+[gd_scene format=3 uid="uid://wg4bybau6yty"]
 
 [ext_resource type="PackedScene" uid="uid://cuhapbvqt6vud" path="res://elements/wires/wiresLong/wires_long.tscn" id="1_4y5fv"]
 [ext_resource type="PackedScene" uid="uid://3fp4t3oa5qo5" path="res://elements/wires/wires.tscn" id="1_21rb3"]
 [ext_resource type="PackedScene" uid="uid://bi8fr1sa4l382" path="res://elements/producerBackground/producer_background.tscn" id="1_a02yc"]
+[ext_resource type="Script" uid="uid://bu12wb5l8jtew" path="res://scenes/producer/producer.gd" id="1_gl63m"]
 [ext_resource type="PackedScene" uid="uid://v3v11orn84p3" path="res://elements/stream_screen/stream_screen.tscn" id="1_uskee"]
 [ext_resource type="PackedScene" uid="uid://b3bvd4lhwcsqd" path="res://components/chat/chatbox/chat.tscn" id="2_jsjcn"]
 [ext_resource type="PackedScene" uid="uid://cl0i7wg574k0u" path="res://elements/chat_screen/chat_screen.tscn" id="2_snlqk"]
@@ -18,6 +19,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Producer View" type="Node2D" unique_id=1392756978]
+script = ExtResource("1_gl63m")
 
 [node name="ProducerBackground" parent="." unique_id=1044813063 instance=ExtResource("1_a02yc")]
 z_index = -10
@@ -107,5 +109,6 @@ texture = SubResource("GradientTexture2D_jsjcn")
 texture_scale = 44.15
 
 [node name="ButtonPanel" parent="." unique_id=131211255 instance=ExtResource("7_jsjcn")]
+unique_name_in_owner = true
 position = Vector2(1007, 1598)
 scale = Vector2(0.5, 0.5)

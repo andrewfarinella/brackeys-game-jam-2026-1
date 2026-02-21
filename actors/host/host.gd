@@ -46,6 +46,7 @@ func _on_sub_acknowledged(username:String) -> void:
 	%SubThanks.hide()
 
 func flash() -> void:
+	if get_tree() == null: return
 	var tween = get_tree().create_tween()
 	tween.tween_property(%AnimatedSprite2D, "modulate", Color.TRANSPARENT, 0.25)
 	tween.tween_property(%AnimatedSprite2D, "modulate", Color.WHITE, 0.25)

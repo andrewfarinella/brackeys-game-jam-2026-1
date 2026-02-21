@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://dq52vgoxk4v4c"]
+[gd_scene format=3 uid="uid://dayu8cafucbx4"]
 
-[ext_resource type="PackedScene" uid="uid://cs147f4fyys0f" path="res://scenes/game_screen/game_screen.tscn" id="1_0wfyh"]
-[ext_resource type="Script" uid="uid://cm6p0jaums2kp" path="res://scenes/main.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://b3bvd4lhwcsqd" path="res://components/chat/chatbox/chat.tscn" id="3_sugp2"]
-[ext_resource type="PackedScene" uid="uid://bwy4857cl3oi0" path="res://scripts/map_gen/map_gen.tscn" id="3_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://d1hm8w4adr3k6" path="res://assets/sprites/viewers.png" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://cm6p0jaums2kp" path="res://scenes/stream/stream.gd" id="1_m7two"]
+[ext_resource type="PackedScene" uid="uid://bwy4857cl3oi0" path="res://scripts/map_gen/map_gen.tscn" id="2_kh0cp"]
+[ext_resource type="PackedScene" uid="uid://cs147f4fyys0f" path="res://scenes/game_screen/game_screen.tscn" id="3_k8eaq"]
+[ext_resource type="PackedScene" uid="uid://b3bvd4lhwcsqd" path="res://components/chat/chatbox/chat.tscn" id="4_580g2"]
+[ext_resource type="Texture2D" uid="uid://d1hm8w4adr3k6" path="res://assets/sprites/viewers.png" id="5_mgp18"]
 
-[node name="Node2D2" type="Node2D" unique_id=1421490685]
-script = ExtResource("1_sugp2")
+[node name="Stream" type="Node2D" unique_id=1421490685]
+script = ExtResource("1_m7two")
 
-[node name="NoiseAtmo" parent="." unique_id=918196414 instance=ExtResource("3_tbgi4")]
+[node name="NoiseAtmo" parent="." unique_id=918196414 instance=ExtResource("2_kh0cp")]
 z_index = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1643675042]
@@ -35,12 +35,12 @@ size = Vector2i(3010, 2094)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="GameScreen" parent="PanelContainer/MarginContainer/SubViewportContainer/SubViewport" unique_id=200790820 instance=ExtResource("1_0wfyh")]
+[node name="GameScreen" parent="PanelContainer/MarginContainer/SubViewportContainer/SubViewport" unique_id=200790820 instance=ExtResource("3_k8eaq")]
 unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=963175881]
 
-[node name="Chatbox" parent="CanvasLayer" unique_id=562640428 instance=ExtResource("3_sugp2")]
+[node name="Chatbox" parent="CanvasLayer" unique_id=562640428 instance=ExtResource("4_580g2")]
 metadata/_edit_lock_ = true
 
 [node name="SubCount" type="Label" parent="CanvasLayer" unique_id=1744370350]
@@ -76,7 +76,7 @@ metadata/_edit_group_ = true
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=841200508]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("4_jyhfs")
+texture = ExtResource("5_mgp18")
 expand_mode = 3
 
 [node name="ViewCount" type="Label" parent="CanvasLayer/HBoxContainer" unique_id=619217263]
